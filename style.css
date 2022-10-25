@@ -1,0 +1,24 @@
+
+.navbar{
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+.navbar-brand{
+  font-size: 2rem;
+  color: black;
+  font-family: 'Lobster', cursive;
+}
+.des{
+  margin-left:50%;
+  margin-bottom: 100%;
+}
+
+
+.rev{
+  margin-left: 50%;
+}
+
+
+
+
