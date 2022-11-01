@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <link rel="stylesheet" href="styles.css">
+    <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<title>User Profile</title>
+	</head>
+	<body>
+		<div class="navcontainer">
+			<nav class = 'navbar'>
+	            <img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo">
+				<a href="F:/USB%20Drive/Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
+	            <ul class='navmenuone'>
+	                <li class='navitem'>
+	                    <input class='nav-input' type='text' placeholder='Search...'/>
+	                </li>
+	                <li class='navitem'>
+	                    <button class='nav-button'>Account</button>
+	                </li>
+	            </ul>
+	            <p><button class='nav-button'>UserName</button></p>
+	        </nav>
+			<nav class = 'navbartwo'>
+	            <ul class='navmenu'>
+	                <li class='navitem'>
+	                    <button class='nav-button'> Headphone </button>
+
+	                </li>
+	                <li class='navitem'>
+	                    <button class='nav-button'>Smartphone</button>
+                    </li>
+	                <li class='navitem'>
+	                    <button class='nav-button'>Computer</button>
+                    </li>
+	                <li class='navitem'>
+	                    <button class='nav-button'>TV</button></li>
+			        <li class='navitem'>
+	                    <button class='nav-button'>More
+			            <img src="https://i.ibb.co/1vrDrph/icons8-expand-arrow-24.png" alt="down arrow" class="downarrow"> </button>
+                    </li>
+	            </ul>
+	        </nav>
+		</div>
+		<div class="side_dash">
+			<header class="d-items head" style="font-size: larger; color:#4E944F; font-weight: bold;">My Account</header>
+			<ul class="d-items">
+				<li class="it">
+					<a href="user_dash.html" id = ><i class='bx bxs-objects-vertical-center'></i>Reviews</a>
+				</li>
+				<li class="it current">
+					<a href="profile.html"><i class='bx bxs-user-circle'></i>Profile</a>
+				</li>
+				<li class="it">
+					<a href="product_req.html"><i class='bx bxs-message-square-edit'></i>Product Request</a>
+				</li>
+				<li class="it">
+					<a href="#"><i class='bx bxs-exit'></i>Logout</a>
+				</li>
+			</ul>
+		</div>
+		<div class = "profile-form">
+			<div class="form-container">
+				<h3>Update Info</h3>
+				<form class = "u-edit" action = "#" method = "post">
+				<div class="in_field">
+				<input type="hidden" name ="usrid"  required value = "<?php echo $_SESSION['ID']?>">
+			    </div>
+				<div class="in_field">
+				<input type="text" name ="usrname"  required value = "username">
+				</div>
+				<div class="in_field">
+				<input type="email" name ="email"  required value = "email">
+				</div>
+				<div class="in_field">	
+				<input type="password" name ="psw"  required value = "password">
+				</div>
+				<div class="in_field">
+				<input type="password" name ="uppsw"  required value = "updated-password">
+				</div>
+				<div class="up-btn">
+					<button>
+						Update Info
+					</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
