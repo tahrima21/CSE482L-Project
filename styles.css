@@ -17,6 +17,24 @@ body {
     font-size: 1.2rem;
     color: white;
   }
+  .navbar a{
+    text-decoration: none;
+    color: white;
+  }
+  .navbar1 {
+    width: 120%;
+    background: #4E944F;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+  }
+  .navbar1 a{
+    text-decoration: none;
+    color: white;
+  }
   .navmenuone {
     display: grid;
     grid-template-columns: repeat(5, auto);
@@ -187,6 +205,13 @@ body {
   .sliderh2{
     color: #4E944F;
   }
+  .logo{
+    height: 90px;
+    width: 90px;
+    background-color: #4E944F;
+    color: #4E944F;
+  }
+  
   /*------------------Start of dashboard and user panel codes---------------------------*/
   .side_dash{
     position: fixed;
