@@ -6,11 +6,16 @@ h2{
     text-align: center;
 }
   
-  
+  .wrapcontainer{
+    display: grid;
+  }
   .wrapper {
+    
     height: 420px;
     width: 654px;
-    margin: 50px auto;
+    margin: 0 auto;
+    margin-top: 210px;
+    margin-bottom: 50px;
     border-radius: 7px 7px 7px 7px;
     /* VIA CSS MATIC https://goo.gl/cIbnS */
     -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
@@ -132,4 +137,7 @@ h2{
    margin-left: 44%;
     height: 60px;
     max-width: fit-content;
+  }
+  .card-title{
+    margin-bottom: 15px;
   }
