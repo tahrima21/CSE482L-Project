@@ -3,13 +3,14 @@
 	<head>
     <link rel="stylesheet" href="styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+	<link rel="stylesheet" href="page.css">
 		<title>Home</title>
 	</head>
 	<body>
 		<div class="navcontainer">
 			<nav class = 'navbar'>
 				<img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo">
-				<a href="F:/USB%20Drive/Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
+				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
 	    <li class='navitem'>
 	    <input
@@ -19,10 +20,11 @@
 	    />
 	    </li>
 	    <li class='navitem'>
-	    <button class='nav-button'>Account</button>
+			<a href="profile.html"><button class='nav-button1'>Account</button></a>
 	    </li>
 	    </ul>
-	    <p><button class='nav-button'>Sign Up/Login</button></p>
+	    <p><button class='nav-button'
+			onclick="document.getElementById('login-form').style.display='block'"style="width:auto;">Sign Up/Login</button></p>
 	    </nav>
 			<nav class = 'navbartwo'>
 	    <ul class='navmenu'>
@@ -49,7 +51,7 @@
 	    >
 	    <button class='nav-button'>TV</button>
 
-	    </li
+	</li>
 			<li class='navitem'
 
 	    >
@@ -59,6 +61,50 @@
 	    </li>
 	    </ul>
 	    </nav>
+
+		<section id="loginRegister">
+			<div id='login-form'class='login-page'>
+				<div class="form-box">
+					<div class='button-box'>
+						<div id='btn'></div>
+						<button type='button'onclick='login()'class='toggle-btn'>Login</button>
+						<button type='button'onclick='register()'class='toggle-btn'>Register</button>
+					</div>
+			
+				<!--Creation the Login Form-->
+					<form id='login' class='input-group-login'>
+						<input type='text'class='input-field'placeholder='Email Id'required>
+						<input type='password'class='input-field'placeholder='Enter Password'required>
+						<input type='checkbox'class='check-box'><span style="color:aliceblue">Remember Password</span>
+						<button type='submit'class='submit-btn'>Login</button>
+					</form>
+			
+					<!--Animation-->
+			
+			<div class="box">
+			<div class="square"style="--i:0"></div>
+			<div class="square"style="--i:1"></div>
+			<div class="square"style="--i:2"></div>
+			<div class="square"style="--i:3"></div>
+			<div class="square"style="--i:4"></div>
+			</div>
+			
+				 <!--Creation the Registration Form-->
+					<form id='register' class='input-group-register'>
+						<input type='text'class='input-field'placeholder='Username'required>
+						<input type='email'class='input-field'placeholder='Email Id'required>
+						<input type='password'class='input-field'placeholder='Enter Password'required>
+						<input type='password'class='input-field'placeholder='Confirm Password'required>
+						<input type='checkbox'class='check-box'><span style="color:aliceblue">I agree to the terms and conditions</span>
+						<button type='submit'class='submit-btn'>Register</button>
+					</form>
+			
+				</div>
+			</div>
+			
+			
+			</div>
+		</section>
 
 		</div>
 				<div class="container">
@@ -169,6 +215,38 @@
 	</div>
 </div>
 
+
+
+<!--JS file-->
+<script>
+var x=document.getElementById('login');
+var y=document.getElementById('register');
+var z=document.getElementById('btn');
+function register()
+{
+	x.style.left='-400px';
+	y.style.left='50px';
+	z.style.left='100px'
+
+}
+function login()
+{
+	x.style.left='50px';
+	y.style.left='450px';
+	z.style.left='0px'
+
+}
+</script>
+<script>
+ var m = document.getElementById('login-form');
+ window.onclick=function(event)
+ {
+	if(event.target==m){
+		m.style.display = "none";
+	}
+ }
+
+</script>
 
 	</body>
 </html>

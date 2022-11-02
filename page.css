@@ -21,7 +21,29 @@
     position: absolute;
 
 }
-.navbar{
+.tagbtncontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+    margin-top: 400px;
+    font-family: 'Montserrat', sans-serif;
+}
+.tagbtn{
+    border-radius: 25px;
+    margin-top: 30px;
+    border: none;
+    display: inline-block;
+    background-color: rgb(160, 228, 157);
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.tagbtn:hover{
+    background-color: rgb(38, 153, 73);
+}
+.navbar2{
     display: flex;
     align-items: center;
     padding: 20px;
@@ -156,7 +178,7 @@ nav ul li button{
     height: 480px;
     position: relative;
     margin: 2% auto;
-    background: rgba(110, 129, 115, 0.3);
+    background: rgba(19, 22, 20, 0.568);
     padding: 10px;
     overflow: hidden;
 }
@@ -164,7 +186,7 @@ nav ul li button{
     width: 220px;
     margin:35px auto;
     position: relative;
-    box-shadow: 0 0 20px 9px #9497961f;
+    box-shadow: 0 0 20px 9px #0a0a0a1f;
     border-radius: 30px;
 }
 .toggle-btn{
@@ -235,7 +257,10 @@ span{
 #login input{
     color: white;
     
-    font-size: 15;
+    font-size: 120;
+}
+#login input::placeholder{
+    color: aliceblue;
 }
 #register{
     left: 450px;
@@ -243,4 +268,12 @@ span{
 #register input{
     color: white;
     font-size: 15;
+}
+section#loginRegister {
+    position: top;
+    transform: translate(90px,90px);
+    
+}
+#register input::placeholder{
+    color: aliceblue;
 }

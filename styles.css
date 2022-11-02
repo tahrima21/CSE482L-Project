@@ -64,6 +64,21 @@ body {
   .nav-button:hover{
     color: #E9EFC0;
   }
+  .nav-button1{
+    padding: 20px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1.5rem;
+    background: inherit;
+    color: white;
+    margin-top: 5px;
+  }
+  .nav-button1:hover{
+    color: #E9EFC0;
+  }
   .nav-input{
     padding: 5px;
     border-radius: 10px;
