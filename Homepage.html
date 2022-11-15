@@ -23,8 +23,10 @@
 			<a href="profile.html"><button class='nav-button1'>Account</button></a>
 	    </li>
 	    </ul>
+		<p><button class='nav-button'
+			onclick="showA()">ADMIN</button></p>
 	    <p><button class='nav-button'
-			onclick="document.getElementById('login-form').style.display='block'"style="width:auto;">Sign Up/Login</button></p>
+			onclick="showU()">Sign Up/Login</button></p>
 	    </nav>
 			<nav class = 'navbartwo'>
 	    <ul class='navmenu'>
@@ -102,8 +104,34 @@
 				</div>
 			</div>
 			
+			 <!--ADMIN LOGIN FORM-->
+			<div id="login-form1">
+				<div class="form-box">
+					<div class='button-box'>
+						<div id='btn'></div>
+						<button type='button'onclick='login()'class='toggle-btn'>Login</button>
+					</div>
+					<!--Creation the Login Form-->
+					<form id='login' class='input-group-login'>
+						<input type='text'class='input-field'placeholder='Email Id'required>
+						<input type='password'class='input-field'placeholder='Enter Password'required>
+						<input type='checkbox'class='check-box'><span style="color:aliceblue">Remember Password</span>
+						<button type='submit'class='submit-btn'>Login</button>
+					</form>
 			
+					<!--Animation-->
+			
+			<div class="box">
+			<div class="square"style="--i:0"></div>
+			<div class="square"style="--i:1"></div>
+			<div class="square"style="--i:2"></div>
+			<div class="square"style="--i:3"></div>
+			<div class="square"style="--i:4"></div>
 			</div>
+				</div>
+			</div>
+			</div>
+			
 		</section>
 
 		</div>
@@ -238,14 +266,28 @@ function login()
 }
 </script>
 <script>
- var m = document.getElementById('login-form');
- window.onclick=function(event)
- {
-	if(event.target==m){
-		m.style.display = "none";
-	}
+	function showA(){
+		document.getElementById("login-form1").style.display = "block";
+		document.getElementById("login-form").style.display = "none";
+		window.onclick=function(event)
+ 		{
+			if(event.target==document.getElementById("login-form1"))
+			{
+				document.getElementById("login-form1").style.display = "none";
+			}
+		}
  }
-
+	function showU(){
+		document.getElementById("login-form").style.display = "block";
+		document.getElementById("login-form1").style.display = "none";
+		window.onclick=function(event)
+ 		{
+			if(event.target==document.getElementById("login-form"))
+			{
+				document.getElementById("login-form").style.display = "none";
+			}
+		}
+}
 </script>
 
 	</body>

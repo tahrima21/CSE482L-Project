@@ -172,6 +172,10 @@ nav ul li button{
 {
     display: none;
 }
+#login-form1
+{
+    display: none;
+}
 .form-box
 {
     width: 380px;
