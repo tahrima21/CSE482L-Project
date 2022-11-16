@@ -170,20 +170,22 @@ nav ul li button{
 
 #login-form
 {
-    display: none;
-}
-#login-form1
-{
-    display: none;
+    display: block;
+    width: 380px;
+    height: 550px;
+    margin-top: 200px;
+    margin-left: 750px;
 }
 .form-box
 {
-    width: 380px;
-    height: 480px;
+    position: fixed;
+    width: 400px;
+    height: 550px;
     position: relative;
     margin: 2% auto;
-    background: rgba(19, 22, 20, 0.568);
+    background: rgba(39, 71, 49);
     padding: 10px;
+    opacity: 0.647;
     overflow: hidden;
 }
 .button-box{
@@ -194,32 +196,35 @@ nav ul li button{
     border-radius: 30px;
 }
 .toggle-btn{
+    width: 220px;
     padding: 10px 30px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
-
+    font-size: larger;
+    font-weight: bold;
 }
 #btn{
     top: 0;
     left: 0;
     position: absolute;
-    width: 100px;
+    width: 220px;
+    text-align: center;
     height: 100%;
     background: rgb(180, 225, 151);
     border-radius: 30px;
     transition: .10s;
 }
 .input-group-login{
-    top:150px;
+    top:170px;
     position: absolute;
     width: 280px;
     transition: .10s;
 }
 .input-group-register{
-    top:120px;
+    top:170px;
     position: absolute;
     width: 280px;
     transition: .10s;
@@ -227,57 +232,46 @@ nav ul li button{
 .input-field{
     width: 100%;
     padding: 10px 0;
+    padding-left: 20px;
     margin: 5px 0;
+    margin-left: 40px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
-    border-bottom: 1px solid rgb(189, 182, 182);
+    border-bottom: 5px solid #889889;
     outline:none;
     background: transparent;
+    font-size: large;
+    color: #E9EFC0;
+}
+::placeholder{
+    color: #E9EFC0;
+    opacity: 1;
+    font-size: medium;
+    font-weight: bold;
 }
 .submit-btn{
     width: 85%;
+    font-size: larger;
+    font-weight: bold;
     padding: 10px 20px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin:45px auto;
+    margin-left: 60px;
     background: rgb(180, 225, 151);
     border: 0;
     outline: none;
     border-radius: 30px;
 }
 .check-box{
-    margin: 30px 10px 34px 0;
+    margin: 30px 10px 34px 40px;
+    
 }
 span{
+    top:133px;
     color: #777;
-    font-size: 12px;
+    font-size: 20px;
     bottom: 68px;
     position: absolute;
-}
-#login{
-    left: 50px;
-}
-#login input{
-    color: white;
-    
-    font-size: 120;
-}
-#login input::placeholder{
-    color: aliceblue;
-}
-#register{
-    left: 450px;
-}
-#register input{
-    color: white;
-    font-size: 15;
-}
-section#loginRegister {
-    position: top;
-    transform: translate(90px,90px);
-    
-}
-#register input::placeholder{
-    color: aliceblue;
 }
