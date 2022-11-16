@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search-wrap{
+    max-width: 450px;
+    margin: 150px auto;
+  }
+  .search-wrap .search-input{
+    position: relative;
+    background: white;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+  }
+  .search-input input{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 60px 0 20px;
+    font-size: 1.1rem;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  .search-input.active input{
+    border-radius: 5px 5px 0 0;
+  }
+  .search-input .icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 45px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .search-input .autocom-box{
+    padding: 0px;
+    max-height: 280px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .search-input.active .autocom-box{
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .search-input.active .autocom-box li{
+    display: block;
+  }
+  .autocom-box li{
+    list-style: none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+    display: none;
+  }
+  .autocom-box li:hover{
+    background: #efefef;
+  }
