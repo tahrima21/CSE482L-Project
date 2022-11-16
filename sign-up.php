@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +21,7 @@
 	    />
 	    </li>
 	    <li class='navitem'>
-			<a href="login.php"><button class='nav-button1'>Account</button></a>
+			<a href="profile.html"><button class='nav-button1'>Account</button></a>
 	    </li>
 	    </ul>
 		<p><a href="ad_login.php"><button class='nav-button1'>Admin</button></a></p>
@@ -62,9 +63,95 @@
 	    </li>
 	    </ul>
 	    </nav>
-
-		
-
+			<div id='login-form'class='login-page'>
+				<div class="form-box">
+					<div class='button-box'>
+						<div id='btn'></div>
+						<button type='button' class='toggle-btn'>Signup</button>
+					</div>
+                    <!-- Error handler-->
+                    <?php
+                        if(isset($_GET["error"]))
+                        {
+                
+                            if($_GET["error"]== "emptyInput")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>All fields must be filled</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "emInvalid")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Invalid Email</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "pser")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Password must be atleast 8 characters</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "pserl")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Password must contain atleast one letter</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "psern")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Password must contain atleast one number</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "nomatch")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Passwors must match</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "usernametaken")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Username taken</strong>
+                                </div>;
+                                <?php
+                            }
+                            if($_GET["error"]== "success")
+                            {
+                                ?>
+                                <div class="alert" style = "background-color: rgb(103, 153, 116); border: 3px rgba(13, 42, 25, 0.929) solid;"> 
+                                        <strong>Signup successful</strong>
+                                </div>;
+                                <?php
+                            }
+                        }
+                    ?>
+                    
+                    <!--Creation the Registration Form-->
+					<form action = "sign-process.php"class='input-group-register' method = "post" novalidate>
+						<input type='text' name="usrname" class='input-field'placeholder='Username'>
+						<input type='email' name="email" class='input-field'placeholder='Email Id'>
+						<input type='password' name="psw" class='input-field'placeholder='Enter Password'>
+						<input type='password' name="cpsw" class='input-field'placeholder='Confirm Password'>
+						<button type='submit' name="reg"class='submit-btn'>Register</button>
+					</form>
+            </div>
+			</div>
+			</div>
 		</div>
 				<div class="container">
 			<div class="slider">
@@ -173,39 +260,5 @@
 		</div>
 	</div>
 </div>
-
-
-
-<!--JS file-->
-<script>
-var x=document.getElementById('login');
-var y=document.getElementById('register');
-var z=document.getElementById('btn');
-function register()
-{
-	x.style.left='-400px';
-	y.style.left='50px';
-	z.style.left='100px'
-
-}
-function login()
-{
-	x.style.left='50px';
-	y.style.left='450px';
-	z.style.left='0px'
-
-}
-</script>
-<script>
-
-		window.onclick=function(event)
- 		{
-			if(event.target==document.getElementById("login-form"))
-			{
-				document.getElementById("login-form").style.display = "none";
-			}
-		}
-</script>
-
 	</body>
 </html>

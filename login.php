@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +21,7 @@
 	    />
 	    </li>
 	    <li class='navitem'>
-			<a href="login.php"><button class='nav-button1'>Account</button></a>
+			<a href="profile.html"><button class='nav-button1'>Account</button></a>
 	    </li>
 	    </ul>
 		<p><a href="ad_login.php"><button class='nav-button1'>Admin</button></a></p>
@@ -63,8 +64,49 @@
 	    </ul>
 	    </nav>
 
-		
-
+		<section id="loginRegister">
+			<div id='login-form'class='login-page'>
+				<div class="form-box">
+                    <div class='button-box'>
+						<div id='btn'></div>
+						<button type='button'class='toggle-btn'>Login</button>
+					</div>
+					<!--Error handler-->
+					<?php
+                        if(isset($_GET["error"]))
+                        {
+                
+                            if($_GET["error"]== "emptyInput")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>All fields must be filled</strong>
+                                </div>;
+                                <?php
+                            }
+							if($_GET["error"]== "wrongLogin")
+                            {
+                                ?>
+                                <div class="alert"> 
+                                        <strong>Wrong email or password</strong>
+                                </div>;
+                                <?php
+                            }
+						}
+					?>
+				<!--Creation the Login Form-->
+					<form action = "login-process.php" id='login' class='input-group-login' method = "post">
+						<input type='text'name = "email" class='input-field'placeholder='Email Id'>
+						<input type='password' name = "psw" class='input-field'placeholder='Enter Password'required>
+						<input type='checkbox' name = "check" class='check-box'><span style="color:aliceblue">Remember Password</span>
+						<button type='submit' name = "login" class='submit-btn'>Login</button>
+					</form>
+			
+					<!--Animation-->
+			
+			
+				</div>
+			</div>
 		</div>
 				<div class="container">
 			<div class="slider">
@@ -173,39 +215,6 @@
 		</div>
 	</div>
 </div>
-
-
-
-<!--JS file-->
-<script>
-var x=document.getElementById('login');
-var y=document.getElementById('register');
-var z=document.getElementById('btn');
-function register()
-{
-	x.style.left='-400px';
-	y.style.left='50px';
-	z.style.left='100px'
-
-}
-function login()
-{
-	x.style.left='50px';
-	y.style.left='450px';
-	z.style.left='0px'
-
-}
-</script>
-<script>
-
-		window.onclick=function(event)
- 		{
-			if(event.target==document.getElementById("login-form"))
-			{
-				document.getElementById("login-form").style.display = "none";
-			}
-		}
-</script>
 
 	</body>
 </html>
