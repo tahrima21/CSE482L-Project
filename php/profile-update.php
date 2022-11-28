@@ -10,7 +10,7 @@
 
         //Query for update
 
-        $query = "UPDATE users SET username = ' $username',email = '$email',password = '$password' WHERE serial = '$user_id'";
+        $query = "UPDATE users SET username = '$username',email = '$email',password = '$password' WHERE userID = '$user_id'";
 
         $query_run = mysqli_query($conn,$query);
         

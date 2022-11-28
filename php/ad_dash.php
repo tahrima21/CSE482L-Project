@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	

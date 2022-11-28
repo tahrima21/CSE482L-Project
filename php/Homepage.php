@@ -1,16 +1,14 @@
-<?php
-	session_start();
-?>
 <!DOCTYPE html>
 <html>
 	<head>
     <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+	<link rel="stylesheet" href="../page.css">
 		<title>Home</title>
 	</head>
 	<body>
 		<div class="navcontainer">
-			<nav class = 'navbar1'>
+			<nav class = 'navbar'>
 				<img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo">
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
@@ -22,10 +20,12 @@
 	    />
 	    </li>
 	    <li class='navitem'>
-	    <a href="user_dash.php" class='nav-button'>Account</a>
+			<a href="login.php"><button class='nav-button1'>Account</button></a>
 	    </li>
 	    </ul>
-	    <p><button class='nav-button'>LoggedIn</button></p>
+		<p><a href="ad_login.php"><button class='nav-button1'>Admin</button></a></p>
+	    <p><a href="./login.php"><button class='nav-button1'>Login</button></a></p>
+		<p><a href="./sign-up.php"><button class='nav-button1'>Signup</button></a></p>
 	    </nav>
 			<nav class = 'navbartwo'>
 	    <ul class='navmenu'>
@@ -62,6 +62,8 @@
 	    </li>
 	    </ul>
 	    </nav>
+
+		
 
 		</div>
 				<div class="container">
@@ -172,6 +174,38 @@
 	</div>
 </div>
 
+
+
+<!--JS file-->
+<script>
+var x=document.getElementById('login');
+var y=document.getElementById('register');
+var z=document.getElementById('btn');
+function register()
+{
+	x.style.left='-400px';
+	y.style.left='50px';
+	z.style.left='100px'
+
+}
+function login()
+{
+	x.style.left='50px';
+	y.style.left='450px';
+	z.style.left='0px'
+
+}
+</script>
+<script>
+
+		window.onclick=function(event)
+ 		{
+			if(event.target==document.getElementById("login-form"))
+			{
+				document.getElementById("login-form").style.display = "none";
+			}
+		}
+</script>
 
 	</body>
 </html>

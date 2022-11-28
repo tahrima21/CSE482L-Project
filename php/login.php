@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
-	<link rel="stylesheet" href="page.css">
+	<link rel="stylesheet" href="../page.css">
 		<title>Home</title>
 	</head>
 	<body>
@@ -69,7 +69,7 @@
 				<div class="form-box">
                     <div class='button-box'>
 						<div id='btn'></div>
-						<button type='button'class='toggle-btn'>Login</button>
+						<button type='button'class='toggle-btn'>User Login</button>
 					</div>
 					<!--Error handler-->
 					<?php

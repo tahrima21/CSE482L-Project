@@ -2,7 +2,7 @@
     $host = "localhost";
     $uername = "root";
     $password = "";
-    $dbname = "products";
+    $dbname = "techrev";
 
     $conn = mysqli_connect($host,$uername,$password,$dbname);
 

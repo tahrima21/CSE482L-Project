@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 		<title>User Profile</title>
@@ -78,7 +78,7 @@
 				</div>
 				<!-- Query for getting the password-->
 				<?php
-                    $con_query = "SELECT password FROM users WHERE serial='".$_SESSION['ID']."'";
+                    $con_query = "SELECT password FROM users WHERE userID='".$_SESSION['ID']."'";
                     $con_query_run = mysqli_query($conn,$con_query);
 
                     if($con_query_run)
