@@ -6,6 +6,7 @@
 <html>
 	<head>
     <link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="srch1.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 		<title>User Profile</title>
@@ -17,7 +18,32 @@
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	            <ul class='navmenuone'>
 	                <li class='navitem'>
-	                    <input class='nav-input' type='text' placeholder='Search...'/>
+					<div class="search-wrap">
+            <div class="search-input">
+                <select class="autocom-box">
+                <option value="option" disabled selected>Search...</option>
+                <?php
+                // use a while loop to fetch data
+                // from the result variable
+                // and individually display as an option
+                while ($products = mysqli_fetch_array(
+                        $result,MYSQLI_ASSOC)):;
+            ?>
+            <option value="option">
+            <?php 
+                echo"<a href='pp.php?ID={$products["product_serial"]}'> {$products["title"]}</a>";
+                    
+                    ?>
+            </option>
+                <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
+                </select>
+                <div class="icon"><a href="https://imgbb.com/"><img src="https://i.ibb.co/fGgCtjy/search.png" alt="search" height="16px" width="16px"></a></div>
+            </div>
+
+        </div>
 	                </li>
 					<li class='navitem'>
 	    				<a href="Log_Home.php" class='nav-button'>Account</a>

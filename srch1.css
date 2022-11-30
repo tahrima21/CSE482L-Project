@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.search-wrap{
+    max-width: 450px;
+    margin: 150px auto;
+  }
+  .search-wrap .search-input{
+    position: relative;
+    background: white;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+  }
+  .autocom-box{
+    width: 450px;
+    padding: 0px;
+    height: 25px;
+    border-radius: 9px;
+    appearance: none;
+    border: none;
+  }
+  .autocom-box:active{
+    border: none;
+  }
+  
+  .icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 28px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
