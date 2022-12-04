@@ -574,3 +574,14 @@ body {
   color: rgb(34, 31, 31);
   font-size: large;
 }
+.btn-pending{
+  background-color: #2196F3; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}

@@ -58,6 +58,9 @@
 				<li class="it">
 					<a  href="product_req.php"><i class='bx bxs-message-square-edit'></i>Product Request</a>
 				</li>
+				<li class="it">
+					<a  href="req_stat.php"><i class='bx bxs-bell-ring'></i>Request Status</a>
+				</li>
 				<li class="it" >
 					<a  href="u_logout.php"><i class='bx bxs-exit'></i>Logout</a>
 				</li>

@@ -5,21 +5,23 @@
     {
         $filename = $_FILES["filei"]["name"];
         $tmpname = $_FILES["filei"]["tmp_name"];
-        $folder = "uploads/". $filename;
+        $folder = "../uploads/". $filename;
          
         $prdname = $_POST["p_name"];
-        $brd_name = $_POST["b_name"];
+        $user_id = $_GET['id'];
         $text = $_POST["txt"];
-
+        $stat = 0;
         //move the uploaded file to the website directory in a new folder
         move_uploaded_file($tmpname,$folder);
         //insert data in the databse
-        if($filename!="" && $prdname!="" && $brd_name!="" && $text!="")
-        {    $query = "INSERT INTO product_req(pr_name,br_name,des,pr_src) VALUES(' $prdname','$brd_name','$text','$folder');";
+        if($filename!="" && $prdname!="" && $text!="")
+        {    $query = "INSERT INTO product_req(user_id,pr_name,des,pr_src,status) VALUES('$user_id','$prdname','$text','$folder','$stat');";
+             $query2 = "INSERT INTO confirm_message(us_id,pr_name,stat) VALUES('$user_id','$prdname','$stat');";
 
               $query_run = mysqli_query($conn,$query);
+              $query_run1 = mysqli_query($conn,$query2);
         }
-        if($query_run)
+        if($query_run &&  $query_run1)
         {
             header("location:./product_req.php?error=done");
             exit();

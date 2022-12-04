@@ -51,13 +51,16 @@
 			<header class="d-items head" style="font-size: larger; color:#4E944F; font-weight: bold;">My Account</header>
 			<ul class="d-items">
 				<li class="it" >
-					<a href="user_dash.html"><i class='bx bxs-objects-vertical-center'></i>Reviews</a>
+					<a href="user_dash.php"><i class='bx bxs-objects-vertical-center'></i>Reviews</a>
 				</li>
 				<li class="it" >
-					<a  href="profile.html"><i class='bx bxs-user-circle'></i>Profile</a>
+					<a  href="profile.php"><i class='bx bxs-user-circle'></i>Profile</a>
 				</li>
 				<li class="it">
-					<a  href="product_req.html"><i class='bx bxs-message-square-edit'></i>Product Request</a>
+					<a  href="product_req.php"><i class='bx bxs-message-square-edit'></i>Product Request</a>
+				</li>
+				<li class="it">
+					<a  href="req_stat.php"><i class='bx bxs-bell-ring'></i>Request Status</a>
 				</li>
 				<li class="it" >
 					<a  href="u_logout.php"><i class='bx bxs-exit'></i>Logout</a>
@@ -66,7 +69,7 @@
 		</div>
 		<div class = "review-form">
 			<div class="req-cont">
-                <form action="req-process.php" method = "post" enctype="multipart/form-data">
+                <form action="req-process.php?id=<?= $_SESSION["ID"];?>" method = "post" enctype="multipart/form-data">
 				<?php
                         if(isset($_GET["error"]))
                         {
@@ -85,9 +88,6 @@
                     <h3>ENTER DATA</h3>
                     <div class="in_fieldnew">
                     <input type="text" name ="p_name" required placeholder = "Enter Product name">
-                    </div>
-                    <div class="in_fieldnew">
-                    <input type="text" name ="b_name" required placeholder = "Enter Brand Name">
                     </div>
                     <div class="in_fieldtext">
                         <textarea name = "txt" placeholder="Enter product details...."></textarea>

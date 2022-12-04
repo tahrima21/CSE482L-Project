@@ -7,25 +7,29 @@
         $data_id = mysqli_real_escape_string($conn,$_GET['id']);
 
         //the accepted data is being taken from the required table and values are fetched
-        $get_d = "SELECT * FROM product_req WHERE pr_id = '$data_id'";
+        $get_d = "SELECT * FROM product_req WHERE req_id = '$data_id'";
         $get_d_run = mysqli_query($conn,$get_d);
 
         if($get_d_run)
         {
             $data = mysqli_fetch_array($get_d_run);
             $prdname = $data['pr_name'];
-            $brd_name = $data['br_name'];
             $text = $data['des'];
             $imgr = $data['pr_src'];
         }
 
-        $store_d = "INSERT INTO main_product (name,brand,descr,pic_source) VALUES('$prdname','$brd_name','$text',' $imgr');";
-        $del_d = "DELETE FROM product_req WHERE pr_id = '$data_id'";
+
+        //Confirm message status
+        $up_status = 1;
+        $message = "UPDATE confirm_message SET stat = '$up_status' WHERE pr_name = '$prdname'";
+        $store_d = "INSERT INTO products (title,description,image) VALUES('$prdname','$text',' $imgr');";
+        $del_d = "DELETE FROM product_req WHERE req_id = '$data_id'";
 
         $store_d_run = mysqli_query($conn,$store_d);
         $del_d_run = mysqli_query($conn,$del_d);
+        $message_run = mysqli_query($conn,$message);
 
-        if($store_d_run and $del_d_run)
+        if($store_d_run and $del_d_run and $message_run)
         {
             header("location:./req_que.php");
             exit();
