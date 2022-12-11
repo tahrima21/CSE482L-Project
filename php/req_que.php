@@ -26,17 +26,17 @@
 			<nav class = 'navbartwo'>
 	            <ul class='navmenu'>
 	                <li class='navitem'>
-	                    <button class='nav-button'> Headphone </button>
+					<a href = "product_gallery.php?type=headphone"><button class='nav-button'> Headphone </button></a>
 
 	                </li>
 	                <li class='navitem'>
-	                    <button class='nav-button'>Smartphone</button>
+						<a href = "product_gallery.php?type=smartphone"><button class='nav-button'>Smartphone</button></a>
                     </li>
 	                <li class='navitem'>
-	                    <button class='nav-button'>Computer</button>
+					<a href = "product_gallery.php?type=computer"><button class='nav-button'>Computer</button></a>
                     </li>
 	                <li class='navitem'>
-	                    <button class='nav-button'>TV</button></li>
+					<a href = "product_gallery.php?type=TV"><button class='nav-button'>TV</button></a></li>
 			        <li class='navitem'>
 	                    <button class='nav-button'>More
 			            <img src="https://i.ibb.co/1vrDrph/icons8-expand-arrow-24.png" alt="down arrow" class="downarrow"> </button>
@@ -74,8 +74,9 @@
                         <thead>
                             <tr>
                                 <th>REQ ID</th>
+								<th>User ID</th>
                                 <th>Product Name</th>
-                                <th>Brand Name</th>
+                                <th>Category</th>
                                 <th>Details</th>
 								<th>Image</th>
                                 <th>Accept</th>
@@ -94,6 +95,7 @@
                                                 <td><?php echo $row['req_id'];?></td>
 												<td><?php echo $row['user_id'];?></td>
                                                 <td><?php echo $row['pr_name'];?></td>
+												<td><?php echo $row['category'];?></td>
                                                 <td><?php echo $row['des'];?></td>
                                                 <td><?php echo "<img src = '".$row['pr_src']."' height = '100' width = '100'/>";?></td>
                                                 

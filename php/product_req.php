@@ -29,17 +29,17 @@
 			<nav class = 'navbartwo'>
 	            <ul class='navmenu'>
 	                <li class='navitem'>
-	                    <button class='nav-button'> Headphone </button>
+					<a href = "product_gallery.php?type=headphone"><button class='nav-button'> Headphone </button></a>
 
 	                </li>
 	                <li class='navitem'>
-	                    <button class='nav-button'>Smartphone</button>
+					<a href = "product_gallery.php?type=smartphone"><button class='nav-button'>Smartphone</button></a>
                     </li>
 	                <li class='navitem'>
-	                    <button class='nav-button'>Computer</button>
+					<a href = "product_gallery.php?type=computer"><button class='nav-button'>Computer</button></a>
                     </li>
 	                <li class='navitem'>
-	                    <button class='nav-button'>TV</button></li>
+					<a href = "product_gallery.php?type=TV"><button class='nav-button'>TV</button></a></li>
 			        <li class='navitem'>
 	                    <button class='nav-button'>More
 			            <img src="https://i.ibb.co/1vrDrph/icons8-expand-arrow-24.png" alt="down arrow" class="downarrow"> </button>
@@ -88,6 +88,9 @@
                     <h3>ENTER DATA</h3>
                     <div class="in_fieldnew">
                     <input type="text" name ="p_name" required placeholder = "Enter Product name">
+                    </div>
+					<div class="in_fieldnew">
+                    <input type="text" name ="p_cat" required placeholder = "Enter Product Category">
                     </div>
                     <div class="in_fieldtext">
                         <textarea name = "txt" placeholder="Enter product details...."></textarea>

@@ -585,3 +585,53 @@ body {
   font-size: 16px;
   border-radius: 8px;
 }
+
+/*Product Gallery*/
+.product-container{
+  position: fixed;
+  top: 200px;
+  background-color: #edf5ba;
+  width: 80%;
+  height: 70%;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.4);
+  left: 10%;
+  border-radius: 6px;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(max(300px,20%),1fr));
+  gap: 2rem;
+}
+  .prod-card{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #b3be99;
+    height: 35rem;
+    box-shadow: 0.5rem, 1rem rgba(0, 0, 0, 0.5);
+    outline: .1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+  }
+  .prod-card:hover{
+    outline: .2rem solid #222;
+    outline-offset: 0;
+  }
+  .product-container.prod-card img{
+    height: 20rem;
+  }
+  .prod-card:hover img{
+    transform: scale(.9);
+    transition: .4s linear;
+  }
+  .prod-card h4{
+    padding: 5rem 0;
+    font-size: 2rem;
+    color: #4E6C50;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .prod-card:hover h4{
+    color: #27ae60;
+  }
+

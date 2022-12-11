@@ -33,25 +33,25 @@
 	    <li class='navitem'
 
 	    >
-	    <button class='nav-button'> Headphone </button>
+	    <a href = "product_gallery.php?type=headphone"><button class='nav-button'> Headphone </button></a>
 
 	    </li>
 	    <li class='navitem'
 
 	    >
-	    <button class='nav-button'>Smartphone</button>
+	    <a href = "product_gallery.php?type=smartphone"><button class='nav-button'>Smartphone</button></a>
 
 	    </li>
 	    <li class='navitem'
 
 	    >
-	    <button class='nav-button'>Computer</button>
+	    <a href = "product_gallery.php?type=computer"><button class='nav-button'>Computer</button></a>
 
 	    </li>
 	    <li class='navitem'
 
 	    >
-	    <button class='nav-button'>TV</button>
+	    <a href = "product_gallery.php?type=TV"><button class='nav-button'>TV</button></a>
 
 	</li>
 			<li class='navitem'
