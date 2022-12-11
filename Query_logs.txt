@@ -8,3 +8,9 @@ VALUES (5,"Samsung F11",LOAD_FILE('F:/CSE482L/Images/headphone.jpg'));
 
 INSERT INTO products (title,description,image)
 VALUES ("GPU","Samsung F11",LOAD_FILE('F:/CSE482L/Images/headphone.jpg'));
+
+ALTER TABLE products
+ADD category VARCHAR(50);
+INSERT INTO products(category) VALUES("headphone");
+
+UPDATE products SET category = "headphone" WHERE product_serial = 1;

@@ -13,11 +13,29 @@
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
 	    <li class='navitem'>
-	    <input
-	    class='nav-input'
-	    type='text'
-	    placeholder='Search...'
-	    />
+	    <div class="search-input">
+                <select class="autocom-box">
+                <option value="option" disabled selected>Search...</option>
+                <?php
+                // use a while loop to fetch data
+                // from the result variable
+                // and individually display as an option
+                while ($products = mysqli_fetch_array(
+                        $result,MYSQLI_ASSOC)):;
+            ?>
+            <option value="option">
+            <?php 
+                echo"<a href='pp.php?ID={$products["product_serial"]}'> {$products["title"]}</a>";
+                    
+                    ?>
+            </option>
+                <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
+                </select>
+                <div class="icon"><a href="https://imgbb.com/"><img src="https://i.ibb.co/fGgCtjy/search.png" alt="search" height="16px" width="16px"></a></div>
+            </div>
 	    </li>
 	    <li class='navitem'>
 			<a href="login.php"><button class='nav-button1'>Account</button></a>
@@ -75,16 +93,16 @@
 					<input type="radio" name="radio-btn" id="radio3">
 					<input type="radio" name="radio-btn" id="radio4">
 				<div class="slide first">
-					<img src="https://i.ibb.co/9Wj1rMq/tv.jpg" alt="tv">
+					<img class="lazy-load" src="https://i.ibb.co/9Wj1rMq/tv.jpg" alt="tv">
 				</div>
 				<div class="slide">
-					<img src="https://i.ibb.co/7kskYFG/cam2.jpg" alt="dslr">
+					<img class="lazy-load" src="https://i.ibb.co/7kskYFG/cam2.jpg" alt="dslr">
 				</div>
 				<div class="slide">
-					<img src="https://i.ibb.co/hcr0xCw/laptop.jpg" alt="laptop">
+					<img class="lazy-load" src="https://i.ibb.co/hcr0xCw/laptop.jpg" alt="laptop">
 				</div>
 				<div class="slide">
-					<img src="https://i.ibb.co/T1Wc8fZ/headphone.jpg" alt="headphone">
+					<img class="lazy-load" src="https://i.ibb.co/T1Wc8fZ/headphone.jpg" alt="headphone">
 				</div>
 				<div class="nav-auto">
 					<div class="auto-btn1"></div>
@@ -109,16 +127,16 @@
 					<input type="radio" name="radio-btn" id="radio7">
 					<input type="radio" name="radio-btn" id="radio8">
 				<div class="slide first">
-					<img src="https://i.ibb.co/ZmpBT2G/headphone2.jpg" alt="headphone">
+					<img class="lazy-load" src="https://i.ibb.co/ZmpBT2G/headphone2.jpg" alt="headphone">
 				</div>
 				<div class="slide">
-					<img src="https://i.ibb.co/q9Tcv5M/tv2.jpg" alt="tv">
+					<img class="lazy-load" src="https://i.ibb.co/q9Tcv5M/tv2.jpg" alt="tv">
 				</div>
 				<div class="slide">
-					<img src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
+					<img class="lazy-load" src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
 				</div>
 				<div class="slide">
-					<img src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
+					<img class="lazy-load" src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
 				</div>
 				<div class="nav-auto">
 					<div class="auto-btn1"></div>
@@ -146,16 +164,16 @@
 			<input type="radio" name="radio-btn" id="radio11">
 			<input type="radio" name="radio-btn" id="radio12">
 			<div class="slide first">
-				<img src="https://i.ibb.co/yB71mGS/laptop2.jpg" alt="laptop">
+				<img class="lazy-load" src="https://i.ibb.co/yB71mGS/laptop2.jpg" alt="laptop">
 			</div>
 			<div class="slide">
-				<img src="https://i.ibb.co/q0Pw7MZ/phone2.jpg" alt="phone">
+				<img class="lazy-load" src="https://i.ibb.co/q0Pw7MZ/phone2.jpg" alt="phone">
 			</div>
 			<div class="slide">
-				<img src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
+				<img class="lazy-load" src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
 			</div>
 			<div class="slide">
-				<img src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
+				<img class="lazy-load" src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
 			</div>
 		<div class="nav-auto">
 			<div class="auto-btn1"></div>
@@ -206,6 +224,7 @@ function login()
 			}
 		}
 </script>
+
 
 	</body>
 </html>
