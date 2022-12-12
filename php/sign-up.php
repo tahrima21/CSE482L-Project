@@ -1,16 +1,4 @@
 
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-	<head>
-    <link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="srch1.css">
-    <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
-	<link rel="stylesheet" href="page.css">
-		<title>Home</title>
-	</head>
-	<body>
-=======
 
 <!DOCTYPE html>
 
@@ -87,47 +75,17 @@ if(!isset($_SESSION['access_token']))
    						 echo '<h3><a href="u_logout.php">Logout</h3></div>';
    						}
 		?>
->>>>>>> Demo2
 		<div class="navcontainer">
 			<nav class = 'navbar'>
 				<img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo">
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
 	    <li class='navitem'>
-<<<<<<< HEAD
-	    <div class="search-wrap">
-            <div class="search-input">
-                <select class="autocom-box">
-                <option value="option" disabled selected>Search...</option>
-                <?php
-                // use a while loop to fetch data
-                // from the result variable
-                // and individually display as an option
-                while ($products = mysqli_fetch_array(
-                        $result,MYSQLI_ASSOC)):;
-            ?>
-            <option value="option">
-            <?php 
-                echo"<a href='pp.php?ID={$products["product_serial"]}'> {$products["title"]}</a>";
-                    
-                    ?>
-            </option>
-                <?php
-                endwhile;
-                // While loop must be terminated
-            ?>
-                </select>
-                <div class="icon"><a href="https://imgbb.com/"><img src="https://i.ibb.co/fGgCtjy/search.png" alt="search" height="16px" width="16px"></a></div>
-            </div>
-
-        </div>
-=======
 	    <input
 	    class='nav-input'
 	    type='text'
 	    placeholder='Search...'
 	    />
->>>>>>> Demo2
 	    </li>
 	    <li class='navitem'>
 			<a href="profile.html"><button class='nav-button1'>Account</button></a>
@@ -176,11 +134,7 @@ if(!isset($_SESSION['access_token']))
 				<div class="form-box">
 					<div class='button-box'>
 						<div id='btn'></div>
-<<<<<<< HEAD
-						<button type='button' class='toggle-btn'>Signup</button>
-=======
 						<button type='button' class='toggle-btn'> User Signup</button>
->>>>>>> Demo2
 					</div>
                     <!-- Error handler-->
                     <?php
@@ -260,10 +214,6 @@ if(!isset($_SESSION['access_token']))
 						<input type='email' name="email" class='input-field'placeholder='Email Id'>
 						<input type='password' name="psw" class='input-field'placeholder='Enter Password'>
 						<input type='password' name="cpsw" class='input-field'placeholder='Confirm Password'>
-<<<<<<< HEAD
-						<button type='submit' name="reg"class='submit-btn'>Register</button>
-					</form>
-=======
 						
 						<button type='submit' name="reg"class='submit-btn'>Register</button>
 						<?php
@@ -275,7 +225,6 @@ if(!isset($_SESSION['access_token']))
 						
 					</form>
 					
->>>>>>> Demo2
             </div>
 			</div>
 			</div>
@@ -387,9 +336,5 @@ if(!isset($_SESSION['access_token']))
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> Demo2
 	</body>
 </html>
