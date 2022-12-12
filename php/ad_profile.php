@@ -5,8 +5,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="srch1.css">
+=======
+    <link rel="stylesheet" href="../styles.css">
+>>>>>>> Demo2
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 		<title>Admin Profile</title>
@@ -18,6 +22,7 @@
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	            <ul class='navmenuone'>
 	                <li class='navitem'>
+<<<<<<< HEAD
 					<div class="search-wrap">
             <div class="search-input">
                 <select class="autocom-box">
@@ -44,6 +49,9 @@
             </div>
 
         </div>
+=======
+	                    <input class='nav-input' type='text' placeholder='Search...'/>
+>>>>>>> Demo2
 	                </li>
 	            </ul>
 	            <p><button class='nav-button'>ADMIN</button></p>

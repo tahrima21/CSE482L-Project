@@ -2,10 +2,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="srch1.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link rel="stylesheet" href="page.css">
+=======
+    <link rel="stylesheet" href="../styles.css">
+    <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+	<link rel="stylesheet" href="../page.css">
+>>>>>>> Demo2
 		<title>Home</title>
 	</head>
 	<body>
@@ -15,6 +21,7 @@
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
 	    <li class='navitem'>
+<<<<<<< HEAD
 	    <div class="search-wrap">
             <div class="search-input">
                 <select class="autocom-box">
@@ -41,6 +48,13 @@
             </div>
 
         </div>
+=======
+	    <input
+	    class='nav-input'
+	    type='text'
+	    placeholder='Search...'
+	    />
+>>>>>>> Demo2
 	    </li>
 	    <li class='navitem'>
 			<a href="profile.html"><button class='nav-button1'>Account</button></a>
@@ -91,7 +105,11 @@
 				<div class="form-box">
                     <div class='button-box'>
 						<div id='btn'></div>
+<<<<<<< HEAD
 						<button type='button'class='toggle-btn'>Login</button>
+=======
+						<button type='button'class='toggle-btn'>User Login</button>
+>>>>>>> Demo2
 					</div>
 					<!--Error handler-->
 					<?php

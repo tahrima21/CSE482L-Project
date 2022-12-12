@@ -5,8 +5,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="srch1.css">
+=======
+    <link rel="stylesheet" href="../styles.css">
+>>>>>>> Demo2
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 		<title>User Profile</title>
@@ -18,6 +22,7 @@
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	            <ul class='navmenuone'>
 	                <li class='navitem'>
+<<<<<<< HEAD
 					<div class="search-wrap">
             <div class="search-input">
                 <select class="autocom-box">
@@ -44,6 +49,9 @@
             </div>
 
         </div>
+=======
+	                    <input class='nav-input' type='text' placeholder='Search...'/>
+>>>>>>> Demo2
 	                </li>
 					<li class='navitem'>
 	    				<a href="Log_Home.php" class='nav-button'>Account</a>
@@ -104,7 +112,11 @@
 				</div>
 				<!-- Query for getting the password-->
 				<?php
+<<<<<<< HEAD
                     $con_query = "SELECT password FROM users WHERE serial='".$_SESSION['ID']."'";
+=======
+                    $con_query = "SELECT password FROM users WHERE userID='".$_SESSION['ID']."'";
+>>>>>>> Demo2
                     $con_query_run = mysqli_query($conn,$con_query);
 
                     if($con_query_run)
