@@ -8,11 +8,8 @@
 
 }
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> Demo2
 .full-page
 
 {
@@ -114,12 +111,7 @@ nav ul li button{
     border-bottom: 1 px solid rgba(255, 255, 255, 0.2);
     background:  rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-<<<<<<< HEAD
-    animation: animate 10s linear infinite;
-    animation-delay: calc(-1s * var(--i:0));
-=======
     
->>>>>>> Demo2
  
  }
 
@@ -284,8 +276,6 @@ span{
     bottom: 68px;
     position: absolute;
 }
-<<<<<<< HEAD
-=======
 
 /*Reponsive*/
 
@@ -307,4 +297,3 @@ span{
     }
     
 }
->>>>>>> Demo2

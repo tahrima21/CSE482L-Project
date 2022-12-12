@@ -13,11 +13,7 @@ body {
     background: #E9EFC0;
   }
   .navbar {
-<<<<<<< HEAD
-    width: 115%;
-=======
     width: 100vw;
->>>>>>> Demo2
     background: #4E944F;
     height: 80px;
     display: flex;
@@ -31,15 +27,9 @@ body {
     color: white;
   }
   .navbar1 {
-<<<<<<< HEAD
-    width: 120%;
-    background: #4E944F;
-    height: 80px;
-=======
     width: 100vw;
     background: #4E944F;
     height: 50px;
->>>>>>> Demo2
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,11 +48,7 @@ body {
     text-align: center;
     width: 70vw;
     justify-content: center;
-<<<<<<< HEAD
-    margin-right: 2rem;
-=======
     margin-left: 2rem;
->>>>>>> Demo2
   }
   .navitem {
     display: flex;
@@ -129,11 +115,8 @@ body {
     justify-content: center;
     margin-right: 2rem;
   }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> Demo2
   .downarrow{
     color: white;
     transform: translate(-5px,5px);
@@ -592,9 +575,6 @@ body {
   border: 3px rgba(187, 59, 59, 0.929) solid;
   color: rgb(34, 31, 31);
   font-size: large;
-<<<<<<< HEAD
-}
-=======
 }
 
 /*responsive Part*/
@@ -636,4 +616,3 @@ body {
   }
 
 
->>>>>>> Demo2
