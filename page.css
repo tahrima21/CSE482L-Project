@@ -8,6 +8,8 @@
 
 }
 
+
+
 .full-page
 
 {
@@ -109,8 +111,7 @@ nav ul li button{
     border-bottom: 1 px solid rgba(255, 255, 255, 0.2);
     background:  rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    animation: animate 10s linear infinite;
-    animation-delay: calc(-1s * var(--i:0));
+    
  
  }
 
@@ -274,4 +275,25 @@ span{
     font-size: 20px;
     bottom: 68px;
     position: absolute;
+}
+
+/*Reponsive*/
+
+@media only screen and (max-width: 1280px) {
+    .full-page{
+       
+        background-position: center;
+        display: inline;
+    }
+
+    .tagbtncontainer{
+        font-size: 30rem;
+
+    }
+    .tagbtn{
+        font-size: 11rem;
+        padding: 9px 15px;
+        
+    }
+    
 }

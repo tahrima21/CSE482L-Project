@@ -1,46 +1,91 @@
 
+
 <!DOCTYPE html>
+
+<?php 
+	include('config.php');
+	$login_button = '';
+
+if(isset($_GET["code"]))
+{
+ //It will Attempt to exchange a code for an valid authentication token.
+ $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+ //This condition will check there is any error occur during geting authentication token. If there is no any error occur then it will execute if block of code/
+ if(!isset($token['error']))
+ {
+  //Set the access token used for requests
+  $google_client->setAccessToken($token['access_token']);
+
+  //Store "access_token" value in $_SESSION variable for future use.
+  $_SESSION['access_token'] = $token['access_token'];
+
+  //Create Object of Google Service OAuth 2 class
+  $google_service = new Google_Service_Oauth2($google_client);
+
+  //Get user profile data from google
+  $data = $google_service->userinfo->get();
+
+  if(!empty($data['given_name']))
+  {
+   $_SESSION['user_first_name'] = $data['given_name'];
+  }
+
+  if(!empty($data['family_name']))
+  {
+   $_SESSION['user_last_name'] = $data['family_name'];
+  }
+
+  if(!empty($data['email']))
+  {
+   $_SESSION['user_email_address'] = $data['email'];
+  }
+
+
+ }
+}
+
+//This is for check user has login into system by using Google account, if User not login into system then it will execute if block of code and make code for display Login link for Login using Google account.
+if(!isset($_SESSION['access_token']))
+{
+ //Create a URL to obtain user authorization
+ $login_button = '<a href="'.$google_client->createAuthUrl().'"><img style="position:absolute; top:320px; width:120px;" src="../images/sign-in-with-google-icon-3.jpg" /></a>';
+}
+
+
+?>
+
 <html>
 	<head>
-    <link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="srch1.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
-	<link rel="stylesheet" href="page.css">
+	<link rel="stylesheet" href="../page.css">
 		<title>Home</title>
 	</head>
 	<body>
+		<?php
+			if($login_button == '')
+   						{
+   						 echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
+   						 
+   						 echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].'</h3>';
+   						 echo "<br>";
+   						 echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
+   						 echo "<br>";
+   						 echo '<h3><a href="u_logout.php">Logout</h3></div>';
+   						}
+		?>
 		<div class="navcontainer">
 			<nav class = 'navbar'>
 				<img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo">
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
 	    <li class='navitem'>
-	    <div class="search-wrap">
-            <div class="search-input">
-                <select class="autocom-box">
-                <option value="option" disabled selected>Search...</option>
-                <?php
-                // use a while loop to fetch data
-                // from the result variable
-                // and individually display as an option
-                while ($products = mysqli_fetch_array(
-                        $result,MYSQLI_ASSOC)):;
-            ?>
-            <option value="option">
-            <?php 
-                echo"<a href='pp.php?ID={$products["product_serial"]}'> {$products["title"]}</a>";
-                    
-                    ?>
-            </option>
-                <?php
-                endwhile;
-                // While loop must be terminated
-            ?>
-                </select>
-                <div class="icon"><a href="https://imgbb.com/"><img src="https://i.ibb.co/fGgCtjy/search.png" alt="search" height="16px" width="16px"></a></div>
-            </div>
-
-        </div>
+	    <input
+	    class='nav-input'
+	    type='text'
+	    placeholder='Search...'
+	    />
 	    </li>
 	    <li class='navitem'>
 			<a href="profile.html"><button class='nav-button1'>Account</button></a>
@@ -89,7 +134,7 @@
 				<div class="form-box">
 					<div class='button-box'>
 						<div id='btn'></div>
-						<button type='button' class='toggle-btn'>Signup</button>
+						<button type='button' class='toggle-btn'> User Signup</button>
 					</div>
                     <!-- Error handler-->
                     <?php
@@ -169,8 +214,17 @@
 						<input type='email' name="email" class='input-field'placeholder='Email Id'>
 						<input type='password' name="psw" class='input-field'placeholder='Enter Password'>
 						<input type='password' name="cpsw" class='input-field'placeholder='Confirm Password'>
+						
 						<button type='submit' name="reg"class='submit-btn'>Register</button>
+						<?php
+						
+
+
+    						echo '<div align="center">'.$login_button . '</div>';
+  						?>
+						
 					</form>
+					
             </div>
 			</div>
 			</div>

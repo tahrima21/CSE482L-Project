@@ -10,7 +10,7 @@ INSERT INTO products (title,description,image)
 VALUES ("GPU","Samsung F11",LOAD_FILE('F:/CSE482L/Images/headphone.jpg'));
 
 ALTER TABLE products
-ADD category VARCHAR(50);
-INSERT INTO products(category) VALUES("headphone");
+MODIFY COLUMN image VARCHAR(350);
 
-UPDATE products SET category = "headphone" WHERE product_serial = 1;
+INSERT INTO products (title,description,image)
+VALUES ("GPU","Xiaomi POCO","https://i.ibb.co/T1Wc8fZ/headphone.jpg");

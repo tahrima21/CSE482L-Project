@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    <link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="srch1.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Home</title>
 	</head>
 	<body>
@@ -16,32 +16,11 @@
 				<a href="Homepage.html"><p style="text-decoration: none;">TechRev</p></a>
 	    <ul class='navmenuone'>
 	    <li class='navitem'>
-	    <div class="search-wrap">
-            <div class="search-input">
-                <select class="autocom-box">
-                <option value="option" disabled selected>Search...</option>
-                <?php
-                // use a while loop to fetch data
-                // from the result variable
-                // and individually display as an option
-                while ($products = mysqli_fetch_array(
-                        $result,MYSQLI_ASSOC)):;
-            ?>
-            <option value="option">
-            <?php 
-                echo"<a href='pp.php?ID={$products["product_serial"]}'> {$products["title"]}</a>";
-                    
-                    ?>
-            </option>
-                <?php
-                endwhile;
-                // While loop must be terminated
-            ?>
-                </select>
-                <div class="icon"><a href="https://imgbb.com/"><img src="https://i.ibb.co/fGgCtjy/search.png" alt="search" height="16px" width="16px"></a></div>
-            </div>
-
-        </div>
+	    <input
+	    class='nav-input'
+	    type='text'
+	    placeholder='Search...'
+	    />
 	    </li>
 	    <li class='navitem'>
 	    <a href="user_dash.php" class='nav-button'>Account</a>
