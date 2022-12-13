@@ -87,10 +87,10 @@
                     if($con_query_run)
                 	{
                         $row2 = mysqli_fetch_array($con_query_run);
-                                            }
+                    }
                 ?>
 				<div class="in_field">	
-				<input type="text" name ="psw"  required value = "<?php echo $row2[0]?>">
+				<input type="text" name ="psw"  required value = "<?php if(!(empty($row2[0]))){echo $row2[0];}?>">
 				</div>
 				<div class="in_field">
 				<input type="password" name ="uppsw"  required >

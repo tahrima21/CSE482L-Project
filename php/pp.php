@@ -1,12 +1,15 @@
+<?php
+	include_once "dbh-con.php";
+?>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Product</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="ss.css">
+    <link rel="stylesheet" href="../ss.css">
     <meta  name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -48,29 +51,50 @@
         </nav>
   </div>
   <div class="wrapcontainer">
-    <div class="wrapper">
-      <div class="product-img">
-        <a href="https://ibb.co/ZfMDFLj"><img src="https://i.ibb.co/D1R2vVJ/smart-wallet.jpg" alt="smart-wallet" height="420" width="327"></a>
-      </div>
-      <div class="product-info">
-        <div class="product-text">
-          <h1>Smart wallet</h1>
-          <h2>by studio and friends</h2>
-          <p>Product Type: Men'z Wallet.<br>
-              Material: 100% Genuine Leather<br>
-              Size-4.5 inch/4 inch;<br>
-              Wt: >100 gms</br>
-                Gender: Men
-                  Pocket/Slote: 12+<br>
-               </p>
-               <p>Price: 78$</p>
-        </div>
-        <div class="product-price-btn">
-          
-          <button type="button">buy now</button>
-        </div>
-      </div>
-    </div>
+    <!--Product info fetch-->
+    <?php
+        if(isset($_GET['pname']))
+				{
+					$pname = $_GET['pname'];
+          $query = "SELECT * FROM products WHERE title = '$pname'";
+          $query_run = mysqli_query($conn,$query);
+				  if(mysqli_num_rows($query_run)>0)
+					{
+            foreach($query_run as $row)
+            { ?>
+              <div class="wrapper">
+                <div class="product-img">
+                  <a href="#"><?php echo "<img src = '".$row['image']."' width = '327' height = '420'>";?></a>
+                </div>
+                <div class="product-info">
+                  <div class="product-text">
+                    <div class="pr-title">
+                      <h1><?php echo $pname?></h1>
+                    </div>
+                    <div class="descrip">
+                      <p><?php echo $row['description']?></p>
+                    </div>
+                    <p>Price: 78$</p>
+                  </div>
+                  <div class="product-price-btn">
+                
+                    <button type="button">buy now</button>
+                  </div>
+                </div>
+              </div>
+              <?php
+            }
+				  }
+				  else
+				  {
+					  ?>
+						  <h3 class = "card-title">No Product found</h3>
+					  <?php
+							
+				  }
+			  }
+		  ?>
+
   </div>
   
   <!--Review section-->

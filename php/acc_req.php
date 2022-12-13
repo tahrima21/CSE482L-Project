@@ -23,7 +23,7 @@
         //Confirm message status
         $up_status = 1;
         $message = "UPDATE confirm_message SET stat = '$up_status' WHERE pr_name = '$prdname'";
-        $store_d = "INSERT INTO products (title,category,description,image) VALUES('$prdname','$prdcat','$text',' $imgr');";
+        $store_d = "INSERT INTO products (title,category,description,image) VALUES('$prdname','$prdcat','$text','$imgr');";
         $del_d = "DELETE FROM product_req WHERE req_id = '$data_id'";
 
         $store_d_run = mysqli_query($conn,$store_d);

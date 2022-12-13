@@ -85,7 +85,7 @@
 								{
 									?>
 									<div class="prod-card">
-                        				<a href = "#">
+									<a href="pp.php?pname=<?php echo $row['title'];?>">
                             			<?php echo "<img src = '".$row['image']."' width = '60%' height = '50%'>";?>
                         				</a>
                             			<h4 class = "card-title"><?php echo $row['title'];?></h4>

@@ -231,7 +231,6 @@ body {
     background-color: #4E944F;
     color: #4E944F;
   }
-
   /*------------------Start of dashboard and user panel codes---------------------------*/
   .side_dash{
     position: fixed;
@@ -635,3 +634,182 @@ body {
     color: #27ae60;
   }
 
+  /*Product review section*/
+
+  #review-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .review-section-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .review-section-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Poppins';
+  }
+
+  .review-section-heading span{
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: 'Poppins';
+  }
+
+  .review-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+    .card-container{
+      width: 500px;
+      box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+      background-color:#ffffff;
+      padding: 20px;
+      margin: 15px;
+    }
+    .profile{
+      display: flex;
+      align-items: center;
+    }
+      .username{
+        display: flex;
+        flex-direction: column;
+      }
+      .username strong{
+        color: #3d3d3d;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        font-family: 'Poppins';
+        font-weight:bold;
+      }
+      .profile span{
+        color: #2b2b2b;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-family: 'Poppins';
+      }
+      .review-rating{
+        color:#ff4545;
+        font-family: 'Poppins';
+        font-weight:bold;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+      }
+    .box-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .comment{
+      color:#4b4b4b;
+    }
+    .comment p{
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /*Enter review form*/
+    .form-card-container{
+      width: 65%;
+      box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+      background-color:#ffffff;
+      padding: 20px;
+      margin: 15px;
+    }
+    .rate-options{
+      width: 100%;
+    }
+    .rate-options select{
+      background-color: #d8dfe5;
+      width: 100%;
+      height: 60px;
+      color:black;
+      padding: 12px;
+      border: none;
+      font-size: 1.5rem;
+      font-family:"Poppins";
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      -webkit-appearance: button;
+      appearance: button;
+      outline: none;
+    }
+    .rate-options select option{
+      font-size: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+      .rate-options select option{
+        font-size: 0.7rem;
+      }
+    }
+    .text-area{
+      margin-top: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .text-area textarea{
+      width: 100%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 1.1rem;
+      font-family:"Poppins";
+      resize: none;
+    }
+    .sub-btn{
+      width:100%;
+    }
+    .btn-submit{
+      width: 100%;
+      background-color: #2196F3; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.3rem;
+      border-radius: 8px;
+    }
+    .btn-submit:hover{
+      opacity: 0.6;
+      cursor: pointer;
+    }
+    .descrip
+    {
+      width: 90%;
+    }
+    .pr-title{
+      width: 90%;
+      text-align:left;
+      margin-bottom: 10px;
+    }
+    .pr-title h1{
+      margin-top: 10px;
+    }

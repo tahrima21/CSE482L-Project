@@ -1,5 +1,92 @@
 
+
 <!DOCTYPE html>
+
+<?php 
+	include('config.php');
+	$login_button = '';
+
+if(isset($_GET["code"]))
+{
+ //It will Attempt to exchange a code for an valid authentication token.
+ $token = $client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+ //This condition will check there is any error occur during geting authentication token. If there is no any error occur then it will execute if block of code/
+ if(!isset($token['error']))
+ {
+  //Set the access token used for requests
+  $client->setAccessToken($token['access_token']);
+
+  //Store "access_token" value in $_SESSION variable for future use.
+  $_SESSION['access_token'] = $token['access_token'];
+
+  //Create Object of Google Service OAuth 2 class
+  $service = new Google_Service_Oauth2($client);
+
+  //Get user profile data from google
+  $data = $service->userinfo->get();
+
+
+  
+	
+
+  if(!empty($data['given_name']))
+  {
+   $_SESSION['U_name'] = $data['given_name'];
+  }
+
+  if(!empty($data['family_name']))
+  {
+   $_SESSION['user_last_name'] = $data['family_name'];
+  }
+
+  if(!empty($data['email']))
+  {
+   $_SESSION['Email'] = $data['email'];
+  }
+  if(!empty($data['id']))
+  {
+	$_SESSION['ID'] = $data['id'];
+  }
+  //Entry data in database
+	$query = "SELECT * FROM users WHERE username = '$data->given_name'";
+	$result = mysqli_query( $conn,$query);
+
+	$row = mysqli_fetch_array($result);
+
+	//if data is not available in database
+     if($row<1)
+	 {
+		echo $data->id;
+		$store_d = "INSERT INTO users (userID,username,email) VALUES('$data->id','$data->given_name','$data->email');";
+		$store_d_run = mysqli_query($conn,$store_d);
+
+		if($store_d_run)
+        {
+            header("location:./Log_Home.php?id='$data->id'");
+            exit();
+        }
+	 }
+	 
+
+ }
+}
+
+//This is for check user has login into system by using Google account, if User not login into system then it will execute if block of code and make code for display Login link for Login using Google account.
+if(!isset($_SESSION['access_token']))
+{
+ //Create a URL to obtain user authorization
+ $login_button = $client->createAuthUrl();
+}
+else
+	 {
+		header("location:./Log_Home.php?id='$data->id'");
+        exit();
+	 }
+
+
+?>
+
 <html>
 	<head>
     <link rel="stylesheet" href="../styles.css">
@@ -33,25 +120,25 @@
 	    <li class='navitem'
 
 	    >
-	    <a href = "product_gallery.php?type=headphone"><button class='nav-button'> Headphone </button></a>
+	    <button class='nav-button'> Headphone </button>
 
 	    </li>
 	    <li class='navitem'
 
 	    >
-	    <a href = "product_gallery.php?type=smartphone"><button class='nav-button'>Smartphone</button></a>
+	    <button class='nav-button'>Smartphone</button>
 
 	    </li>
 	    <li class='navitem'
 
 	    >
-	    <a href = "product_gallery.php?type=computer"><button class='nav-button'>Computer</button></a>
+	    <button class='nav-button'>Computer</button>
 
 	    </li>
 	    <li class='navitem'
 
 	    >
-	    <a href = "product_gallery.php?type=TV"><button class='nav-button'>TV</button></a>
+	    <button class='nav-button'>TV</button>
 
 	</li>
 			<li class='navitem'
@@ -147,8 +234,15 @@
 						<input type='email' name="email" class='input-field'placeholder='Email Id'>
 						<input type='password' name="psw" class='input-field'placeholder='Enter Password'>
 						<input type='password' name="cpsw" class='input-field'placeholder='Confirm Password'>
+						
 						<button type='submit' name="reg"class='submit-btn'>Register</button>
+						
+						<?php if(!empty($login_button)){?>
+						<a href="<?php echo $login_button?>"><img style="position:absolute; top:320px; width:120px; margin-left: 100px;" src="../images/sign-in-with-google-icon-3.jpg" /></a>
+						<?php } ?>
+						
 					</form>
+					
             </div>
 			</div>
 			</div>
@@ -260,5 +354,6 @@
 		</div>
 	</div>
 </div>
+
 	</body>
 </html>
