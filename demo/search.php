@@ -1,15 +1,22 @@
 <?php
-    $con = new PDO("mysql:host=localhost; dbname=techrev",'root','');
-
-    if(isset ($_POST["submit"])){
-        $str = $_POST["search"];
-        $sql = $con->prepare("SELECT * from `products` WHERE description = '$str'");
-
-        $sql->setFetchMode(PDO: : FETCH_OBJ);
-        $sql -> execute();
-
+    $conn = mysqli_connect("localhost", "root", "", "techrev" );
+    if ($conn-> connect_error){
+        die("Connection failed:".$conn-> connect_error);
     }
-
-    $sql = "SELECT title, product_serial from products";
-    $result = mysqli_query($conn,$sql);
-?>
+    if(isset($_POST['query'])){
+        $inpText=$_POST['query'];
+        $query="SELECT description FROM products WHERE description LIKE '%$inpText%'";
+        $result = $conn->query($query);
+        if($result->num_rows>0){
+            while($row=$result->fetch_assoc()){
+                echo " <a href='' class='list-group-item list-group-item-action border-1'>
+                ".$row['description']."</a> ";
+            }
+        }
+        else{
+            echo "<p class='list-group-item border 1'>No Match</p> ";
+        }
+    }
+    
+    
+    ?>

@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
     <script>
         function mouseover() {
             document.getElementById("gfg").style.background = "#B4E197";
@@ -25,6 +40,33 @@
             }
          
     </script>
+    <script type="text/javascript">
+        function get_data(text){
+            var text = document.querySelector(".js-search").value;
+            var form = new FormData();
+            form.append('text',text);
+            var ajax = new XMLHttpRequest();
+            ajax.addEventListener('readystatechange',function(e){
+                if(ajax.readyState == 4 && ajax.status == 200){
+                    handle_result(ajax.responseText);
+                }
+            });
+            ajax.open('post','api.php',true);
+            ajax.send(form);
+        }
+        function handle_result(result){
+            //console.log(result);
+            var result_div = document.querySelector(".js-results");
+            var str = "";
+
+            var obj = JSON.parse(result);
+            for(var i = obj.length - 1; i>=0; i--){
+                //console.log(obj[i].title);
+                str += "<div>" + obj[i].title + "</div>";
+            }
+            result_div.innerHTML = str;
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <meta charset="utf-8">
@@ -41,10 +83,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="d-flex" method="post" action="search.php">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-            <button class="btn btn-outline-success" style="color: white; margin-right: 20px;" type="submit" name="submit">Search</button>
-          </form>
+        
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" style="color: white; margin-right: 600px;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,6 +112,17 @@
   </div>
 </nav>
 </div>
+<form class="form-inline p-3" style="display: center; justify-content: center;">
+    <input onchange="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
+    <div class="input-group-append">
+        <input type="text" name="submit" value="Search" class="btn btn-outline-success" style="color: white;">
+    </div>
+  </form>
+  <div id="list" class="col-md-5" style="position: relative; margin-left: 705px; margin-top: -15px; width: 390px;">
+    <div class="list-group results js-results" id="show-list">
+        
+    </div>
+  </div>
 <div class="container">
 <div class="slider">
 <h2 class="sliderh2">Top Rated</h2>
