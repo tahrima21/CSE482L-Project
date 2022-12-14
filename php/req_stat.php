@@ -48,22 +48,21 @@
 	        </nav>
 		</div>
 		<div class="side_dash" id="pic">
-			<header class="d-items head" style="font-size: larger; color:#4E944F; font-weight: bold;">My Account</header>
 			<ul class="d-items">
             <li class="it" >
-					<a href="user_dash.php"><i class='bx bxs-objects-vertical-center'></i>Reviews</a>
+					<a href="user_dash.php"><i class='bx bxs-objects-vertical-center'></i><span class = "menu-titles">Reviews</spam></a>
 				</li>
 				<li class="it" >
-					<a  href="profile.php"><i class='bx bxs-user-circle'></i>Profile</a>
+					<a  href="profile.php"><i class='bx bxs-user-circle'></i><span class="menu-titles">Profile</span></a>
 				</li>
 				<li class="it">
-					<a  href="product_req.php"><i class='bx bxs-message-square-edit'></i>Product Request</a>
+					<a  href="product_req.php"><i class='bx bxs-message-square-edit'></i><span class="menu-titles">Product Request</span></a>
 				</li>
 				<li class="it">
-					<a  href="req_stat.php"><i class='bx bxs-bell-ring'></i>Request Status</a>
+					<a  href="req_stat.php"><i class='bx bxs-bell-ring'></i><span class="menu-titles">Request Status</span></a>
 				</li>
 				<li class="it" >
-					<a  href="u_logout.php"><i class='bx bxs-exit'></i>Logout</a>
+					<a  href="u_logout.php"><i class='bx bxs-exit'></i><span class="menu-titles">Logout</span></a>
 				</li>
 			</ul>
 		</div>

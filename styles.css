@@ -233,14 +233,18 @@ body {
   }
   /*------------------Start of dashboard and user panel codes---------------------------*/
   .side_dash{
-    position: fixed;
-    top: 140px;
+    position: absolute;
+    top: 139px;
+    bottom:0;
+    left: 0;
     background-color:#B4E197;
-    width: 300px;
-    height: 100vh;
+    width: 90px;
+    height: 100%;
+    overflow: hidden;
+    transition: width 0.2s linear;
     box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.4);
   }
-    .d-items{
+    /*.d-items{
       padding-top: 20px;
       padding-left: 85px;
       list-style: none;
@@ -248,17 +252,38 @@ body {
     }
       .it{
         padding-bottom: 40px;
-      }
+      }*/
       .it a{
+        position: relative;
+        display: table;
+        padding: 10px;
+        width: 300px;
         text-decoration: underline transparent;
         color: #4E944F;
-        font-size:larger;
+        font-size: 1.5rem;
         font-weight: bold;
         transition: 0.5s ease;
+        font-family: 'Poppins';
+      }
+      .bx{
+        position: relative;
+        width: 70px;
+        height: 40px;
+        top:14px;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      .menu-titles{
+        position: relative;
+        top: 12px;
+        margin-left: 10px;
       }
     .it a:hover{
-      text-decoration: underline;
-      text-decoration-thickness: 3px;  
+      background-color: #a9bb9d;  
+    }
+    .side_dash:hover{
+      width: 280px;
+      transition: all 0.5s ease;
     }
 
 /*-------------All reviews page*/

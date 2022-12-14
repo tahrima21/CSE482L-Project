@@ -41,6 +41,7 @@
                 setcookie("userid",$uidExists["userID"],time()+ 86400,"/");
             }
             else{
+                $_SESSION["session_on"] = 'yes';
                 $_SESSION["ID"] = $uidExists["userID"];
                 $_SESSION["U_name"] = $uidExists["username"];
                 $_SESSION["Email"] = $uidExists["email"];

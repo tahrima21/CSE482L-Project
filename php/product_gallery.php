@@ -1,5 +1,6 @@
 <?php
 	include_once "dbh-con.php";
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,12 +25,19 @@
 	    />
 	    </li>
 	    <li class='navitem'>
+        <?php if(isset($_SESSION["session_on"])) {?>
+      <a href="user_dash.php"><button class='nav-button1'>Account</button></a>
+      <?php } else {?>
 			<a href="login.php"><button class='nav-button1'>Account</button></a>
+      <?php }?>
 	    </li>
 	    </ul>
+      <?php if(isset($_SESSION["session_on"])) {?>
+        <p><button class='nav-button'>LoggedIn</button></p><?php } else {?>
 		<p><a href="ad_login.php"><button class='nav-button1'>Admin</button></a></p>
 	    <p><a href="./login.php"><button class='nav-button1'>Login</button></a></p>
 		<p><a href="./sign-up.php"><button class='nav-button1'>Signup</button></a></p>
+    <?php }?>
 	    </nav>
 			<nav class = 'navbartwo'>
 	    <ul class='navmenu'>
@@ -86,7 +94,7 @@
 									?>
 									<div class="prod-card">
 									<a href="pp.php?pname=<?php echo $row['title'];?>">
-                            			<?php echo "<img src = '".$row['image']."' width = '60%' height = '50%'>";?>
+                            			<?php echo "<img src = '".$row['image']."' width = '60%' height = '50%' loading ='lazy'>";?>
                         				</a>
                             			<h4 class = "card-title"><?php echo $row['title'];?></h4>
                     				</div>
