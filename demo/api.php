@@ -9,8 +9,8 @@
         }catch(PDOException $e){
             die($e->getMessage());
         }
-
-        $stm = $con->query("SELECT title, description FROM products");
+        $text = addslashes($text);
+        $stm = $con->query("SELECT title FROM products WHERE title LIKE '%$text%'");
         $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
         echo json_encode($result);

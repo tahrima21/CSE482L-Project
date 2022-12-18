@@ -110,6 +110,22 @@
     background-color: #4E944F;
     color: #4E944F;
   }
+  .results{
+    transform: translate(48px,0px);
+    width: 359px;
+    padding-top: 4px;
+    border-radius: 3px;
+    border: solid thin #aaa;
+    outline: none;
+  }
+  .results div:hover{
+    background-color: #aaa;
+    color: black;
+    cursor: pointer;
+  }
+  .hide{
+    display: none;
+  }
 
   /*------------------Start of dashboard and user panel codes---------------------------*/
   .side_dash{

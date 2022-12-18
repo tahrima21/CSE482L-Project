@@ -38,10 +38,23 @@
         function mouseout2() {
                 document.getElementById("gfg3").style.background = "#4E944F";
             }
+            function mouseover3() {
+            document.getElementById("gfg4").style.background = "#B4E197";
+        }
+
+        function mouseout3() {
+                document.getElementById("gfg4").style.background = "#4E944F";
+            }
          
     </script>
     <script type="text/javascript">
         function get_data(text){
+            if(text.trim()==""){
+                return
+            }
+            if(text.trim().length < 2){
+                return
+            }
             var text = document.querySelector(".js-search").value;
             var form = new FormData();
             form.append('text',text);
@@ -62,9 +75,23 @@
             var obj = JSON.parse(result);
             for(var i = obj.length - 1; i>=0; i--){
                 //console.log(obj[i].title);
-                str += "<div>" + obj[i].title + "</div>";
+                str += `<a href='pp.php?ID={$products["product_serial"]}' <div>` + obj[i].title + "</div></a><br>";
             }
             result_div.innerHTML = str;
+            if(obj.length > 0){
+                show_results();
+            }
+            else{
+                hide_results();
+            }
+        }
+        function show_results(){
+            var result_div = document.querySelector(".js-results");
+            result_div.classList.remove("hide");
+        }
+        function hide_results(){
+            var result_div = document.querySelector(".js-results");
+            result_div.classList.add("hide");
         }
     </script>
     <link rel="stylesheet" href="styles.css">
@@ -92,7 +119,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #4E944F;">
               <li><a onmouseover="mouseover()" onmouseout="mouseout()" id="gfg" class="dropdown-item" href="#" style="color: white;">Smartphone</a></li>
               <li><a onmouseover="mouseover1()" onmouseout="mouseout1()" id="gfg2" class="dropdown-item" href="#" style="color: white;">Computer</a></li>
-              
+              <li><a onmouseover="mouseover3()" onmouseout="mouseout3()" id="gfg4" class="dropdown-item" href="#" style="color: white;">Headphone</a></li>
               <li><a onmouseover="mouseover2()" onmouseout="mouseout2()" id="gfg3" class="dropdown-item" href="#" style="color: white;">TV</a></li>
             </ul>
           </li>
@@ -113,13 +140,11 @@
 </nav>
 </div>
 <form class="form-inline p-3" style="display: center; justify-content: center;">
-    <input onchange="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
-    <div class="input-group-append">
-        <input type="text" name="submit" value="Search" class="btn btn-outline-success" style="color: white;">
-    </div>
+    <input autofocus="true" onblur="hide_results()" oninput="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
+    
   </form>
   <div id="list" class="col-md-5" style="position: relative; margin-left: 705px; margin-top: -15px; width: 390px;">
-    <div class="list-group results js-results" id="show-list">
+    <div class="results js-results hide">
         
     </div>
   </div>
