@@ -27,14 +27,14 @@
 
         $pwdHashed = $uidExists["password"];
 
-        //$checkPwd = password_verify($pwd,$pwdHashed);
+        $checkPwd = password_verify($pwd,$pwdHashed);
 
-        if($pwd !== $pwdHashed)
+        if($checkPwd == false)
         {
             header('location: ./login.php?error=wrongLogin');
             exit();
         }
-        else if($pwd == $pwdHashed)
+        else if($checkPwd == true)
         {
             if(isset($_POST["check"]))
             {

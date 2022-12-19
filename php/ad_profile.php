@@ -71,19 +71,25 @@
 				</div>
 				<!-- Query for getting the password-->
 				<?php
-                    $con_query = "SELECT password FROM admin WHERE serial='".$_SESSION['ID']."'";
-                    $con_query_run = mysqli_query($conn,$con_query);
-
-                    if($con_query_run)
-                	{
-                        $row2 = mysqli_fetch_array($con_query_run);
-                                            }
+                    $con_query = "SELECT password FROM admin WHERE serial = ?";
+					$con_query_stmt = mysqli_stmt_init($conn);
+					if(!mysqli_stmt_prepare($con_query_stmt, $con_query))
+					{
+						echo "Sql Statement failed";
+					}
+					else{
+						//assign the placeholder original values
+						mysqli_stmt_bind_param($con_query_stmt,'i',$_SESSION['ID']);
+						//Run
+						mysqli_stmt_execute($con_query_stmt);
+						$con_query_result = mysqli_stmt_get_result($con_query_stmt);
+						//fetch data into variables
+						$row2 = mysqli_fetch_array($con_query_result);
+						mysqli_stmt_close($con_query_stmt);
+                	}
                 ?>
 				<div class="in_field">	
 				<input type="password" name ="psw"  required value = "<?php echo $row2[0]?>">
-				</div>
-				<div class="in_field">
-				<input type="password" name ="uppsw"  required>
 				</div>
 				<div class="up-btn">
 					<button name = "update">

@@ -35,10 +35,6 @@ if(isset($_GET["code"]))
    $_SESSION['U_name'] = $data['given_name'];
   }
 
-  if(!empty($data['family_name']))
-  {
-   $_SESSION['user_last_name'] = $data['family_name'];
-  }
 
   if(!empty($data['email']))
   {
@@ -55,17 +51,53 @@ if(isset($_GET["code"]))
 	$row = mysqli_fetch_array($result);
 
 	//if data is not available in database
-     if($row<1)
+     if($row==0)
 	 {
-		echo $data->id;
-		$store_d = "INSERT INTO users (userID,username,email) VALUES('$data->id','$data->given_name','$data->email');";
-		$store_d_run = mysqli_query($conn,$store_d);
-
-		if($store_d_run)
+		$store_d = "INSERT INTO users (username,email) VALUES(?,?);";
+		$store_d_stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($store_d_stmt, $store_d))
         {
-            header("location:./Log_Home.php?id='$data->id'");
-            exit();
+            echo "Sql Statement failed";
         }
+        else{
+            //assign the placeholder original values
+            mysqli_stmt_bind_param($store_d_stmt,'ss',$data->given_name,$data->email);
+            //Run
+            mysqli_stmt_execute($store_d_stmt);
+            mysqli_stmt_close($store_d_stmt);
+        }
+		//$store_d_run = mysqli_query($conn,$store_d);
+
+		//fetch user id
+		$get_d = "SELECT * FROM users WHERE username = ?";
+        //Prepared statement
+        $get_d_stmt = mysqli_stmt_init($conn);
+        //Prepare the query
+        if(!mysqli_stmt_prepare($get_d_stmt, $get_d))
+        {
+            echo "Sql Statement failed";
+        }
+        else{
+            //assign the placeholder original values
+            mysqli_stmt_bind_param($get_d_stmt,'s',$data->given_name);
+            //Run
+            mysqli_stmt_execute($get_d_stmt);
+            $get_d_result = mysqli_stmt_get_result($get_d_stmt);
+
+            //fetch data into variables
+            while($data = mysqli_fetch_assoc($get_d_result))
+            {
+                $userid = $data['userID'];
+            }
+            mysqli_stmt_close($get_d_stmt);
+        }
+            header("location:./Log_Home.php?id='$userid'");
+            exit();
+	 }
+	 else
+	 {
+		header("location:./Log_Home.php?id='$userid'");
+            exit();
 	 }
 	 
 
@@ -78,12 +110,6 @@ if(!isset($_SESSION['access_token']))
  //Create a URL to obtain user authorization
  $login_button = $client->createAuthUrl();
 }
-else
-	 {
-		header("location:./Log_Home.php?id='$data->id'");
-        exit();
-	 }
-
 
 ?>
 

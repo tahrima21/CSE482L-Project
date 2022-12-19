@@ -84,16 +84,31 @@
                     <?php
                         if(isset($_GET['type']))
 						{
-							$category = $_GET['type'];
-                        	$query = "SELECT * FROM products WHERE category = '$category'";
-                        	$query_run = mysqli_query($conn,$query);
-							if(mysqli_num_rows($query_run)>0)
+							//$category = $_GET['type'];
+							$category = mysqli_real_escape_string($conn,strip_tags($_GET['type']));
+                        	$query = "SELECT * FROM products WHERE category = ?";
+
+							$query_stmt = mysqli_stmt_init($conn);
+							if(!mysqli_stmt_prepare($query_stmt, $query))
+        					{
+            					echo "Sql Statement failed";
+        					}
+							else{
+								//assign the placeholder original values
+								mysqli_stmt_bind_param($query_stmt,'s',$category);
+								//Run
+								mysqli_stmt_execute($query_stmt);
+								$query_result = mysqli_stmt_get_result($query_stmt);
+								mysqli_stmt_close($query_stmt);
+							}
+							//data fetch
+							if(mysqli_num_rows($query_result)>0)
 							{
-								foreach($query_run as $row)
+								while($row = mysqli_fetch_assoc($query_result))
 								{
 									?>
 									<div class="prod-card">
-									<a href="pp.php?pname=<?php echo $row['title'];?>">
+									<a href="pp.php?pid=<?php echo $row['product_serial'];?>">
                             			<?php echo "<img src = '".$row['image']."' width = '60%' height = '50%' loading ='lazy'>";?>
                         				</a>
                             			<h4 class = "card-title"><?php echo $row['title'];?></h4>

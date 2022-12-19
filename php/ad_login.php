@@ -2,7 +2,7 @@
 <html>
 	<head>
     <link rel="stylesheet" href="../styles.css">
-    <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link rel="stylesheet" href="../page.css">
 		<title>Home</title>
 	</head>

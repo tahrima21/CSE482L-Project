@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="../page.css">
 		<title>Home</title>
 	</head>
@@ -174,8 +179,31 @@
 	</div>
 </div>
 
+<!--Subscription Box-->
+<div class="sub-container">
+        <input type = "radio" id = "hide">
+        
+        <div class="sub-box">
+            <label for ="hide" ><i class='bx bxs-exit'></i></label>
+            <div class="sub-logo">
+                <img src = "https://i.ibb.co/G78rr2S/logo.png" height="90px" width="90px" loading = "lazy">
+            </div>
+            <div class="sub-button">
+                <div class="text-1">
+                    TechRev
+                </div>
+                <div class="text-2">
+                    To get notified about new product
+                </div>
+                <button class="subscribe">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </div>
 
 
+<script src = "./pushnote/main.js"></script>
 <!--JS file-->
 <script>
 var x=document.getElementById('login');

@@ -11,6 +11,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #E9EFC0;
+    overflow: hidden;
   }
   .navbar {
     width: 115%;
@@ -291,12 +292,12 @@ body {
   position: fixed;
   top: 150px;
   background-color: #edf5ba;
-  width: 1200px;
-  height: 650px;
+  width: 60%;
+  height: 70%;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.4);
-  left: 500px;
+  left: 290px;
   border-radius: 6px;
-  overflow: auto;
+  overflow: hidden;
 }
 .review-form::-webkit-scrollbar{
   width: 1rem;
@@ -320,7 +321,7 @@ body {
   }
   .dottedline{
     height: 3px;
-    width: 940px;
+    width: 90%;
     position: relative;
     background-color: rgb(152, 138, 138);
     margin-left: 20px;
@@ -329,8 +330,8 @@ body {
     position: relative;
     background-color: rgb(152, 138, 138);
     height: auto;
-    width: 920px;
-    margin-left: 30px;
+    width: 80%;
+    margin: 5px 5px 5px 15px;
     border-radius: 4px;
   }
     .h5{
@@ -342,6 +343,7 @@ body {
       margin-top:20px;
       margin-left: 20px;
       margin-bottom: 10px;
+      font-size: 1.1rem;
     }
     .show-btn{
       height: 30px;
@@ -352,7 +354,7 @@ body {
       background-color: #edf5ba;;
       height: 70%;
       width: 100%;
-      font-size: medium;
+      font-size: 1.1rem;
       font-weight: bold;
       border-radius: 6px;
       border: none;
@@ -379,16 +381,17 @@ body {
 }
   .form-container{
 
-    width: 80%;
-    height: 60%;
-    padding: 30px;
+    width: 100%;
+    height: 70%;
+    padding: 25px;
     background-color: white;
     border-radius: 8px;
     border: 5px solid #4E944F;
+    overflow: auto;
   }
   h3{
     line-height: 1px;
-    font-size: 28px;
+    font-size: 2rem;
     font-weight: 600;
     color: #232836;
     text-align: center;
@@ -397,36 +400,38 @@ body {
   }
   .in_field{
     
-    height: 40px;
+    height: 60px;
     width: 100%;
+    margin-bottom: 10px;
   }
   .in_field input{
-    height: 80%;
+    height: 100%;
     width: 100%;
-    background-color: #B4E197;
+    background-color: yellow;
     border: none;
     border-radius: 6px;
     padding-left: 15px;
-    font-size: large;
-    color: #4E6C50;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #292f2a;
   }
   .in_field input:focus{
     outline-color: #4E6C50;
   }
   .up-btn{
-    height: 30px;
-    width: 30%;
+    height: 45px;
+    width: 200px;
     margin-top: 5px;
   }
   .up-btn button{
     background-color: #B4E197;
     height: 100%;
     width: 100%;
-    font-size: medium;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 6px;
     border: none;
-    color: #61764B;
+    color: #2b2d29;
   }
   .up-btn button:hover{
     background-color: #749F82;
@@ -435,9 +440,9 @@ body {
 
   /*--------------Product Request Page*/
     .req-cont{
-      width: 870px;
+      width: 90%;
       height: 320px;
-      padding: 30px;
+      padding: 5px 5px 5px 5px;
       background-color: white;
       border-radius: 8px;
       border: 5px solid #4E944F;
@@ -457,8 +462,9 @@ body {
         border: none;
         border-radius: 6px;
         padding-left: 15px;
-        font-size: large;
-        color: #4E6C50;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #2a2f2a;
       }
       .in_fieldnew input:focus{
         outline-color: #4E6C50;
@@ -468,19 +474,20 @@ body {
         margin-top: 5px;
         height: 60px;
         width: 100%;
-        padding-bottom: 25px;
+        margin-bottom: 80px;
       }
       .in_fieldtext textarea{
-        height: 100px;
+        height: 130px;
         width: 100%;
         background-color: #B4E197;
         border: none;
         border-radius: 6px;
         padding-left: 15px;
-        font-size: large;
-        color: #4E6C50;
+        font-size: 1.1rem;
+        color: #2f322f;
         font-weight: bold;
         outline: none;
+        resize: none;
       }
       .req-cont::-webkit-scrollbar{
         width: 1rem;
@@ -496,9 +503,15 @@ body {
         background: #555; 
       }
 /*........requests queue*/
+.que{
+  height: 100%;
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  overflow: auto;
+}
 .class-body{
-  margin-left: 90px;
-  margin-right: 90px;
+  height: 100%;
+  width:100%;
 }
 .tbody{
   border-radius: 6px;
@@ -506,9 +519,9 @@ body {
 .table{
   border-collapse: collapse;
   margin: 25px 0;
-  font-size: 0.9em;
+  font-size: 1.1em;
   font-family: sans-serif;
-  width: 1000px;
+  width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 6px;
 }
@@ -567,24 +580,37 @@ body {
 
 /*--------Stat cards*/
 .stat-dt {
-  float: left;
-  width: 25%;
+  left: 50px;
+  width: 35%;
   padding: 0 10px;
   margin-left: 20px;
   margin-top: 20px;
 }
-.stat-cont {margin: 0 -5px;}
+.stat-cont {
+  margin: 10px 10px 10px 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .stat-cont:after {
   content: "";
   display: table;
   clear: both;
 }
 .crd {
+  height: 200px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
+  display: flex;
+  align-items: center;
   text-align: center;
-  background-color: #bda9a9;;
+  justify-content: center;
+  background-color: #bda9a9;
   border-radius: 6px;
+  flex-direction: column;
+  font-size: 1.1rem;
 }
 .alert {
   display: flex;
@@ -838,3 +864,110 @@ body {
     .pr-title h1{
       margin-top: 10px;
     }
+/*Subscription Box*/
+.sub-container{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.sub-container #hide{
+  display: none;
+}
+  
+  .sub-box{
+      background-color: rgb(237, 225, 225);
+      display: flex;
+      padding: 15px 25px 15px 15px;
+      border-radius: 4px;
+      border: 5px solid rgba(32, 52, 32, 0.764);
+      box-shadow: 0px 5px 10px rgb(0 0 0 / 20%);
+      align-items: center;
+      position: relative;
+      animation: show_box 0.8s ease forwards;
+  }
+  @keyframes show_box {
+      0%{
+          transform: translateX(100%);
+        }
+        40%{
+          transform: translateX(-5%);
+        }
+        80%{
+          transform: translateX(5%);
+        }
+        100%{
+          transform: translateX(calc(-10px));
+        }
+  }
+  #hide:checked ~ .sub-box{
+      animation: hide_box 0.8s ease forwards;
+  }
+  @keyframes hide_box {
+    0%{
+      transform: translateX(0%);
+    }
+    40%{
+      transform: translateX(5%);
+    }
+    80%{
+      transform: translateX(5%);
+    }
+    100%{
+      transform: translateX(calc(100% + 35px));
+    }
+  }
+
+  .sub-container .sub-box i{
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      color: #666;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.4s ease;
+  }
+  .sub-container i:hover{
+      color: #000;
+  }
+      .sub-button{
+          display: flex;
+          flex-direction: column;
+      }
+          .text-1{
+              font-size: 1.7rem;
+              font-weight: bolder;
+              font-family: "Poppins";
+              color: #333;
+          }
+          .text-2{
+              font-size: 1.3rem;
+              font-weight: bolder;
+              font-family: "Poppins";
+              color: #333;
+              margin: 2px 0 8px 0;
+          }
+          .subscribe{
+              font-size: 1.7rem;
+              font-weight: 500;
+              display: block;
+              font-family: "Poppins";
+              background-color: #2b454b;
+              color: white;
+              padding: 6px 0;
+              border-radius: 6px;
+              transition: all 0.4s ease;
+          }
+          .subscribe:hover{
+              background-color: #a8b8bb;
+              color: #243134;
+          }
+      .sub-logo{
+          height: 90px;
+          width: 90px;
+          margin-right: 15px;
+      }
+      .sub-logo img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+      }

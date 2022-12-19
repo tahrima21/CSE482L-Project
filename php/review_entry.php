@@ -4,10 +4,10 @@
 
     if(isset($_POST['submit']))
     {
-        $pid = $_GET['pid'];
-        $uid = $_SESSION['ID'];
-        $review = $_POST['rev'];
-        $rate = $_POST['rate'];
+        $pid = mysqli_real_escape_string($conn,strip_tags($_GET['pid']));
+        $uid = mysqli_real_escape_string($conn,strip_tags($_SESSION['ID']));
+        $review = mysqli_real_escape_string($conn,strip_tags($_POST['rev']));
+        $rate = mysqli_real_escape_string($conn,strip_tags($_POST['rate']));
         $added_on = date('Y-m-d');
 
         $store_d = "INSERT INTO reviews (userID,product_serial,comments,rating,added_on) VALUES('$uid','$pid','$review','$rate','$added_on');";
@@ -15,7 +15,7 @@
 
         if($store_d_run)
         {
-            header("location:./pp.php");
+            header("location:./pp.php?pid=$pid");
             exit();
         }
     }

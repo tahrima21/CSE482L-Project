@@ -100,9 +100,9 @@ session_start();
             header("location: ../sign-up.php?error=stmtfailed");
             exit();  
         }
-        
+        $hashedPass = password_hash($psswd,PASSWORD_DEFAULT);
         //if no error found then user data is sent for binding
-        mysqli_stmt_bind_param($stmt,"sss", $username,$email,$psswd);
+        mysqli_stmt_bind_param($stmt,"sss", $username,$email,$hashedPass);
 
         mysqli_stmt_execute($stmt);
 

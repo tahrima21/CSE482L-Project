@@ -72,9 +72,23 @@
                 <div class = "class-body">
 					<!--Query section-->
                     <?php
-                        $user_id = $_SESSION["ID"];
-                        $query = "SELECT * FROM confirm_message WHERE us_id = '$user_id'";
-                        $query_run = mysqli_query($conn,$query);
+                        $user_id = mysqli_real_escape_string($conn,strip_tags($_SESSION["ID"]));
+                        //$user_id = $_SESSION["ID"];
+                        $query = "SELECT * FROM confirm_message WHERE us_id = ?";
+                        $query_stmt = mysqli_stmt_init($conn);
+                        //Prepare the query
+                        if(!mysqli_stmt_prepare($query_stmt, $query))
+                        {
+                            echo "Sql Statement failed";
+                        }
+                        else{
+                            //assign the placeholder original values
+                            mysqli_stmt_bind_param($query_stmt,'i',$user_id);
+                            //Run
+                            mysqli_stmt_execute($query_stmt);
+                            $query_result = mysqli_stmt_get_result($query_stmt);
+                            mysqli_stmt_close($query_stmt);
+                          }
                     ?>
                     <table class = "table">
                         <thead>
@@ -88,9 +102,9 @@
                         <tbody class = "tbd">
 							<!--Showing data on table-->
 						<?php
-                                if(mysqli_num_rows($query_run)>0)    //record is there or not
+                                if(mysqli_num_rows($query_result)>0)    //record is there or not
                                 {
-                                    foreach($query_run as $row)
+                                    while($row = mysqli_fetch_assoc($query_result))
                                     {
                                         ?>
                                        

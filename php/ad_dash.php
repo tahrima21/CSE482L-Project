@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Admin Dashboard</title>
 	</head>
 	<body>
@@ -66,12 +66,7 @@
 							<h1>34</h1>
 						</div>
 					</div>
-					<div class="stat-dt">
-						<div class="crd">
-							<h5>Total Brands</h5>
-							<h1>25</h1>
-						</div>
-					</div>
+					
 					<div class="stat-dt">
 						<div class="crd">
 							<h5>Total Reviews</h5>

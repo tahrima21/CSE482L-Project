@@ -1,6 +1,7 @@
 
 body {
     background-color: #d6f7b0;
+    overflow: auto;
   }
 h2{
     text-align: center;

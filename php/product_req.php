@@ -91,12 +91,13 @@
 					<div class="in_fieldnew">
                     <input type="text" name ="p_cat" required placeholder = "Enter Product Category">
                     </div>
+					<div class="in_fieldnew">
+                    <input type="file" name = "filei" value = "image" class = "form-btn">
+                    </div>
                     <div class="in_fieldtext">
                         <textarea name = "txt" placeholder="Enter product details...."></textarea>
                     </div>
-                    <div class="in_fieldnew">
-                    <input type="file" name = "filei" value = "image" class = "form-btn">
-                    </div>
+                    
                     <div class="up-btn">
                         <button name ="submit">
                             Submit Request

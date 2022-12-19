@@ -1,13 +1,18 @@
 <?php
     if(isset($_POST["reg"]))
     {
-        /* form validation */
-        $username = $_POST["usrname"];
-        $email = $_POST["email"];
-        $psswd = $_POST["psw"];
-        $cpsswd = $_POST["cpsw"];
-
         require __DIR__."/dbh-con.php";
+        /* form validation */
+        $username = mysqli_real_escape_string($conn,strip_tags($_POST["usrname"]));
+        $email = mysqli_real_escape_string($conn,strip_tags($_POST["email"]));
+        $psswd = mysqli_real_escape_string($conn,strip_tags($_POST["psw"]));
+        $cpsswd = mysqli_real_escape_string($conn,strip_tags($_POST["cpsw"]));
+        //$username = $_POST["usrname"];
+        //$email = $_POST["email"];
+       // $psswd = $_POST["psw"];
+        //$cpsswd = $_POST["cpsw"];
+
+        //require __DIR__."/dbh-con.php";
         require __DIR__."/data-checker.php";
 
         /* if any of the fields are empty */

@@ -7,6 +7,7 @@
 	<head>
     <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../ss.css">
 		<title>Home</title>
@@ -81,16 +82,28 @@
   <div class="wrapcontainer">
     <!--Product info fetch-->
     <?php
-        if(isset($_GET['pname']))
+        if(isset($_GET['pid']))
 				{
-					$pname = $_GET['pname'];
-          $query = "SELECT * FROM products WHERE title = '$pname'";
-          $query_run = mysqli_query($conn,$query);
-				  if(mysqli_num_rows($query_run)>0)
+					$pid = mysqli_real_escape_string($conn,strip_tags($_GET['pid']));
+          $query = "SELECT * FROM products WHERE product_serial = ?";
+          $query_stmt = mysqli_stmt_init($conn);
+          //Prepare the query
+          if(!mysqli_stmt_prepare($query_stmt, $query))
+          {
+              echo "Sql Statement failed";
+          }
+          else{
+            //assign the placeholder original values
+            mysqli_stmt_bind_param($query_stmt,'i',$pid);
+            //Run
+            mysqli_stmt_execute($query_stmt);
+            $query_result = mysqli_stmt_get_result($query_stmt);
+            mysqli_stmt_close($query_stmt);
+          }
+				  if(mysqli_num_rows($query_result)>0)
 					{
-            foreach($query_run as $row)
+            while($row = mysqli_fetch_assoc($query_result))
             { 
-              $pid = $row['product_serial'];
               ?>
               <div class="wrapper">
                 <div class="product-img">
@@ -99,17 +112,19 @@
                 <div class="product-info">
                   <div class="product-text">
                     <div class="pr-title">
-                      <h1><?php echo $pname?></h1>
+                      <h1><?php echo $row['title']?></h1>
                     </div>
                     <div class="descrip">
                       <p><?php echo $row['description']?></p>
                     </div>
                     <p>Price: 78$</p>
                   </div>
+                  <!--
                   <div class="product-price-btn">
                 
                     <button type="button">buy now</button>
                   </div>
+                  -->
                 </div>
               </div>
               <?php
@@ -140,35 +155,68 @@
 
         <!--Comment fetch part-->
         <?php
-          $retrieve_info = "SELECT * FROM (users NATURAL JOIN reviews) NATURAL JOIN products;";
-
-          $retrieve_user_run = mysqli_query($conn,$retrieve_info);
-          if($retrieve_user_run)
+          if(isset($_GET['pid']))
           {
-            $info = mysqli_fetch_array($retrieve_user_run);
+            $pid = mysqli_real_escape_string($conn,strip_tags($_GET['pid']));
+          $retrieve_info = "SELECT * FROM (users NATURAL JOIN reviews) NATURAL JOIN products WHERE product_serial = ?;";
+
+          $retrieve_info_stmt = mysqli_stmt_init($conn);
+          //Prepare the query
+          if(!mysqli_stmt_prepare($retrieve_info_stmt, $retrieve_info))
+          {
+              echo "Sql Statement failed";
           }
+          else{
+            //assign the placeholder original values
+            mysqli_stmt_bind_param($retrieve_info_stmt,'i',$pid);
+            //Run
+            mysqli_stmt_execute($retrieve_info_stmt);
+            $retrieve_user_result = mysqli_stmt_get_result($retrieve_info_stmt);
+            mysqli_stmt_close($retrieve_info_stmt);
+          }
+          //$retrieve_user_run = mysqli_query($conn,$retrieve_info);
+
+          if(mysqli_num_rows($retrieve_user_result)>0)
+					{
+                while($info = mysqli_fetch_assoc($retrieve_user_result))
+								{
+									?>
+                  <div class="card-container">
+                    <div class="box-top">
+                      <div class="profile">
+                        <div class="username">
+                          <strong><?php echo $info['username'];?></strong>
+                          <span><?php echo date('d M Y',strtotime($info['added_on']));?></span> 
+                        </div>
+                      </div>
+                      <div class="review-rating">
+                        <h4><?php echo $info['rating'];?></h4>
+                      </div>
+                    </div>
+
+                    <!--Comment part of card-->
+                    <div class="comment">
+                        <p><?php echo $info['comments'];?></p>
+                    </div>
+                  </div>
+                  <!--Break End-->
+                  <?php
+                  
+
+								}
+					}
+					else
+					{
+							?>
+									<h3 class = "card-title">No Reviews found</h3>
+								<?php
+							
+					}
+          }
+          
         ?>
       <!--Break Start -->
-      <div class="card-container">
-        <div class="box-top">
-          <div class="profile">
-            <div class="username">
-              <strong><?php echo $info[2];?></strong>
-              <span><?php echo date('d M Y',strtotime($info[8]));?></span> 
-            </div>
-          </div>
-          <div class="review-rating">
-            <h4><?php echo $info[7];?></h4>
-          </div>
-        </div>
-
-        <!--Comment part of card-->
-        <div class="comment">
-          <p><?php echo $info[6];?></p>
-        </div>
-      </div>
-
-      <!--Break End-->
+      
     </div>
   </section>
 
