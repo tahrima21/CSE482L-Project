@@ -3,7 +3,7 @@
 	<head>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
-	
+	<link rel="stylesheet" href="../page.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     
      <!-- Latest compiled and minified CSS -->
