@@ -133,7 +133,7 @@
                     $('#show-list').html('');
                 }
             });
-            $(document).on('click','a',function(){
+            $(document).on('click','.js-result',function(){
                 $('#search').val($(this).text());
                 $('#show-list').html('');
             });

@@ -132,10 +132,14 @@
           </li>
           <li class="nav-item">
           <?php if(isset($_SESSION["session_on"])) {?>
-      <a href="user_dash.php"><button class='nav-button1'>Account</button></a>
+            <li class="nav-item">
+          <a class="nav-link" style="color: white; margin-right: 20px;" href="user_dash.php">Account</a>
+        </li>
       <?php } else {?>
-			<a href="login.php"><button class='nav-button1'>Account</button></a>
-      <?php }?>
+        <li class="nav-item">
+          <a class="nav-link" style="color: white; margin-right: 20px;" href="login.php">Account</a>
+        </li>
+      
           </li>
         <li class="nav-item">
           <a class="nav-link" style="color: white; margin-right: 20px;" href="ad_login.php">Admin</a>
@@ -146,6 +150,7 @@
           <li class="nav-item">
             <a class="nav-link" style="color: white; margin-right: 20px;" href="./login.php">Login</a>
           </li>
+          <?php }?>
         
         
       </ul>
@@ -153,15 +158,7 @@
   </div>
 </nav>
 </div>
-<form class="form-inline p-3" style="display: center; justify-content: center;">
-    <input autofocus="true" onblur="hide_results()" oninput="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
-    
-  </form>
-  <div id="list" class="col-md-5" style="position: relative; margin-left: 705px; margin-top: -15px; width: 390px;">
-    <div class="results js-results hide">
-        
-    </div>
-  </div>
+
 				
 			<div class="product-container">
 					<!--Query section-->

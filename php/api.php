@@ -14,7 +14,7 @@
         if($result->num_rows>0)
         {
             while($row = mysqli_fetch_assoc($result)){
-                echo "<a href='pp.php?pid=".$row['product_serial']." class ='list-group-item list-group-item-action border-1' style='color:black;background-color:white; height:30px; text-decoration: none; '>".$row['title']."</a>";
+                echo "<a href='pp.php?pid=".$row['product_serial']." class ='list-group-item list-group-item-action border-1 js-result' style='color:black;background-color:white; height:30px; text-decoration: none; '>".$row['title']."</a>";
             }
         }
         else{
