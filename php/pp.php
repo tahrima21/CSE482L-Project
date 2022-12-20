@@ -113,7 +113,7 @@
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4E944F;">
   <div class="container-fluid">
     <img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo" style="height: 50px; width: 50px; background-color: #4E944F; color: #4E944F;">
-				<a href="Homepage.html" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
+				<a href="Homepage.php" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -137,56 +137,6 @@
       <?php } else {?>
 			<a href="login.php"><button class='nav-button1'>Account</button></a>
       <?php }?>
-<<<<<<< HEAD
-	    </li>
-	    </ul>
-      <?php if(isset($_SESSION["session_on"])) {?>
-        <p><button class='nav-button'>LoggedIn</button></p><?php } else {?>
-		<p><a href="ad_login.php"><button class='nav-button1'>Admin</button></a></p>
-	    <p><a href="./login.php"><button class='nav-button1'>Login</button></a></p>
-		<p><a href="./sign-up.php"><button class='nav-button1'>Signup</button></a></p>
-    <?php }?>
-	    </nav>
-			<nav class = 'navbartwo'>
-	    <ul class='navmenu'>
-	    <li class='navitem'
-
-	    >
-	    <a href = "product_gallery.php?type=headphone"><button class='nav-button'> Headphone </button></a>
-
-	    </li>
-	    <li class='navitem'
-
-	    >
-	    <a href = "product_gallery.php?type=smartphone"><button class='nav-button'>Smartphone</button></a>
-
-	    </li>
-	    <li class='navitem'
-
-	    >
-	    <a href = "product_gallery.php?type=computer"><button class='nav-button'>Computer</button></a>
-
-	    </li>
-	    <li class='navitem'
-
-	    >
-	    <a href = "product_gallery.php?type=TV"><button class='nav-button'>TV</button></a>
-
-	</li>
-			<li class='navitem'
-
-	    >
-	    <button class='nav-button'>More
-			<img src="https://i.ibb.co/1vrDrph/icons8-expand-arrow-24.png" alt="down arrow" class="downarrow"> </button>
-
-	    </li>
-	    </ul>
-	    </nav>
-
-		
-
-		</div>
-=======
           </li>
         <li class="nav-item">
           <a class="nav-link" style="color: white; margin-right: 20px;" href="ad_login.php">Admin</a>
@@ -214,7 +164,6 @@
     </div>
   </div>
 		
->>>>>>> demo
   <div class="wrapcontainer">
     <!--Product info fetch-->
     <?php

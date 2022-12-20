@@ -38,7 +38,11 @@
         {
             if(isset($_POST["check"]))
             {
-                setcookie("userid",$uidExists["userID"],time()+ 86400,"/");
+                setcookie("email",$uidExists["email"],time()+ 86400,"/");
+                $_SESSION["session_on"] = 'yes';
+                $_SESSION["ID"] = $uidExists["userID"];
+                $_SESSION["U_name"] = $uidExists["username"];
+                $_SESSION["Email"] = $uidExists["email"];
             }
             else{
                 $_SESSION["session_on"] = 'yes';

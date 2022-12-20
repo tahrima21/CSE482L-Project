@@ -360,6 +360,17 @@
         font-weight: bold;
         color: #2a2f2a;
       }
+      .in_fieldnew select{
+        height: 80%;
+        width: 100%;
+        background-color: #B4E197;
+        border: none;
+        border-radius: 6px;
+        padding-left: 15px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #2a2f2a;
+      }
       .in_fieldnew input:focus{
         outline-color: #4E6C50;
       }

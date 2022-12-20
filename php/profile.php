@@ -111,7 +111,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4E944F;">
   <div class="container-fluid">
     <img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo" style="height: 50px; width: 50px; background-color: #4E944F; color: #4E944F;">
-				<a href="Homepage.html" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
+				<a href="Homepage.php" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -143,15 +143,6 @@
   </div>
 </nav>
 </div>
-<form class="form-inline p-3" style="display: center; justify-content: center;">
-    <input autofocus="true" onblur="hide_results()" oninput="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
-    
-  </form>
-  <div id="list" class="col-md-5" style="position: relative; margin-left: 705px; margin-top: -15px; width: 390px;">
-    <div class="results js-results hide">
-        
-    </div>
-  </div>
 		<div class="side_dash">
 			<ul class="d-items">
 				<li class="it">

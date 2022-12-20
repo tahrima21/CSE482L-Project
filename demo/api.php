@@ -2,10 +2,10 @@
 
     if(count($_POST)>0){
         $text = $_POST['text'];
-        $string = "mysql:host=localhost; dbname=techrev";
+        $string = "mysql:host=localhost; dbname=techrevuser";
 
         try{
-            $con = new PDO($string,"root","");
+            $con = new PDO($string,"techrevUser","Z*RQ9fL]s6dss58w");
         }catch(PDOException $e){
             die($e->getMessage());
         }

@@ -115,7 +115,7 @@ if(!isset($_SESSION['access_token']))
 
 <html>
 	<head>
-    
+    <link rel="stylesheet" href="../styles.css">
     <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
 	<link rel="stylesheet" href="../page.css">
 	<meta charset="UTF-8">
@@ -172,53 +172,6 @@ if(!isset($_SESSION['access_token']))
             }
          
     </script>
-    <script type="text/javascript">
-        function get_data(text){
-            if(text.trim()==""){
-                return
-            }
-            if(text.trim().length < 2){
-                return
-            }
-            var text = document.querySelector(".js-search").value;
-            var form = new FormData();
-            form.append('text',text);
-            var ajax = new XMLHttpRequest();
-            ajax.addEventListener('readystatechange',function(e){
-                if(ajax.readyState == 4 && ajax.status == 200){
-                    handle_result(ajax.responseText);
-                }
-            });
-            ajax.open('post','api.php',true);
-            ajax.send(form);
-        }
-        function handle_result(result){
-            //console.log(result);
-            var result_div = document.querySelector(".js-results");
-            var str = "";
-
-            var obj = JSON.parse(result);
-            for(var i = obj.length - 1; i>=0; i--){
-                //console.log(obj[i].title);
-                str += `<a href='pp.php?ID={$products["product_serial"]}' <div>` + obj[i].title + "</div></a><br>";
-            }
-            result_div.innerHTML = str;
-            if(obj.length > 0){
-                show_results();
-            }
-            else{
-                hide_results();
-            }
-        }
-        function show_results(){
-            var result_div = document.querySelector(".js-results");
-            result_div.classList.remove("hide");
-        }
-        function hide_results(){
-            var result_div = document.querySelector(".js-results");
-            result_div.classList.add("hide");
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -229,7 +182,7 @@ if(!isset($_SESSION['access_token']))
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4E944F;">
   <div class="container-fluid">
     <img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo" style="height: 50px; width: 50px; background-color: #4E944F; color: #4E944F;">
-				<a href="Homepage.html" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
+				<a href="Homepage.php" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -266,15 +219,6 @@ if(!isset($_SESSION['access_token']))
   </div>
 </nav>
 </div>
-<form class="form-inline p-3" style="display: center; justify-content: center;">
-    <input autofocus="true" onblur="hide_results()" oninput="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
-    
-  </form>
-  <div id="list" class="col-md-5" style="position: relative; margin-left: 705px; margin-top: -15px; width: 390px;">
-    <div class="results js-results hide">
-        
-    </div>
-  </div>
 			<div id='login-form'class='login-page'>
 				<div class="form-box">
 					<div class='button-box'>
@@ -363,7 +307,7 @@ if(!isset($_SESSION['access_token']))
 						<button type='submit' name="reg"class='submit-btn'>Register</button>
 						
 						<?php if(!empty($login_button)){?>
-						<a href="<?php echo $login_button?>"><img style="position:absolute; top:320px; width:120px; margin-left: 100px;" src="../images/sign-in-with-google-icon-3.jpg" /></a>
+						<a href="<?php echo $login_button?>"><img style="position:absolute; top:360px; width:120px; margin-left: 100px;" src="../images/sign-in-with-google-icon-3.jpg" /></a>
 						<?php } ?>
 						
 					</form>

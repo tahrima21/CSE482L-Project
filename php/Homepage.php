@@ -55,53 +55,7 @@
             }
          
     </script>
-    <script type="text/javascript">
-        function get_data(text){
-            if(text.trim()==""){
-                return
-            }
-            if(text.trim().length < 2){
-                return
-            }
-            var text = document.querySelector(".js-search").value;
-            var form = new FormData();
-            form.append('text',text);
-            var ajax = new XMLHttpRequest();
-            ajax.addEventListener('readystatechange',function(e){
-                if(ajax.readyState == 4 && ajax.status == 200){
-                    handle_result(ajax.responseText);
-                }
-            });
-            ajax.open('post','api.php',true);
-            ajax.send(form);
-        }
-        function handle_result(result){
-            //console.log(result);
-            var result_div = document.querySelector(".js-results");
-            var str = "";
-
-            var obj = JSON.parse(result);
-            for(var i = obj.length - 1; i>=0; i--){
-                //console.log(obj[i].title);
-                str += `<a href='pp.php?ID={$products["product_serial"]}' <div>` + obj[i].title + "</div></a><br>";
-            }
-            result_div.innerHTML = str;
-            if(obj.length > 0){
-                show_results();
-            }
-            else{
-                hide_results();
-            }
-        }
-        function show_results(){
-            var result_div = document.querySelector(".js-results");
-            result_div.classList.remove("hide");
-        }
-        function hide_results(){
-            var result_div = document.querySelector(".js-results");
-            result_div.classList.add("hide");
-        }
-    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -112,7 +66,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4E944F;">
   <div class="container-fluid">
     <img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo" style="height: 50px; width: 50px; background-color: #4E944F; color: #4E944F;">
-				<a href="Homepage.html" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
+				<a href="Homepage.php" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -146,15 +100,54 @@
   </div>
 </nav>
 </div>
-<form class="form-inline p-3" style="display: center; justify-content: center;">
-    <input autofocus="true" onblur="hide_results()" oninput="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 360px;" autocomplete="off" required>
-    
+
+<form >
+<div class="input-group mb-3" style="width:40%; margin-left:30%; margin-top:20px">
+  <span class="input-group-text">Search</span>
+  <input type="text" class="form-control js-search" id="search">
+</div>
+<div class="list-group" style="width:40%; margin-left:30%; margin-top:1px" id="show-list">
+  
+</div>
+</form>
+<script type="text/javascript">
+        $(document).ready(function(){
+            //event listener on keyup
+            $('#search').keyup(function(){
+                //value stored on searchText
+                var searchText = $(this).val();
+                //check if searchText is empty
+                if(searchText!='')
+                {
+                    //send request to server using ajax
+                    $.ajax({
+                        url:'api.php',
+                        method: 'post',
+                        data:{query:searchText},
+                        success: function(response){
+                            $('#show-list').html(response);
+                        }
+                    });
+                }
+                else{
+                    $('#show-list').html('');
+                }
+            });
+            $(document).on('click','a',function(){
+                $('#search').val($(this).text());
+                $('#show-list').html('');
+            });
+        });
+    </script>
+<!-- <form class="form-inline p-3" style="display: flex; justify-content: center;">
+    <input autofocus="true" onblur="hide_results()" oninput="get_data(this.value)" class="form-control me-2 search js-search" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="width: 280px;" autocomplete="off" required>
   </form>
-  <div id="list" class="col-md-5" style="position: relative; margin-left: 705px; margin-top: -15px; width: 390px;">
+  <div id="list" class="col-md-5">
     <div class="results js-results hide">
         
     </div>
-  </div>
+  </div> -->
+  
 				<div class="container">
 			<div class="slider">
 				<h2 class="sliderh2">Top Rated</h2>
@@ -197,18 +190,23 @@
 					<input type="radio" name="radio-btn" id="radio6">
 					<input type="radio" name="radio-btn" id="radio7">
 					<input type="radio" name="radio-btn" id="radio8">
-				<div class="slide first">
-					<img src="https://i.ibb.co/ZmpBT2G/headphone2.jpg" alt="headphone">
-				</div>
-				<div class="slide">
-					<img src="https://i.ibb.co/q9Tcv5M/tv2.jpg" alt="tv">
-				</div>
-				<div class="slide">
-					<img src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
-				</div>
-				<div class="slide">
-					<img src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
-				</div>
+					<?php
+						include_once "dbh-con.php";
+                        $t_rev_query = "SELECT product_serial,image,COUNT(review_serial)  FROM `reviews` NATURAL JOIN products GROUP  BY product_serial ORDER BY COUNT(review_serial) DESC LIMIT 4;";
+                        $t_rev_query_run = mysqli_query($conn,$t_rev_query);
+
+                        if($t_rev_query_run)
+                        {
+							while($data = mysqli_fetch_assoc($t_rev_query_run))
+            				{
+								?>
+                				<div class="slide first">
+								<a href="pp.php?pid=<?php echo $data['product_serial']?>"><?php echo "<img src = '".$data['image']."' width = '327' height = '420'>";?></a>
+								</div>
+								<?php
+            				}
+                        }
+                    ?>
 				<div class="nav-auto">
 					<div class="auto-btn1"></div>
 					<div class="auto-btn2"></div>
@@ -234,18 +232,23 @@
 			<input type="radio" name="radio-btn" id="radio10">
 			<input type="radio" name="radio-btn" id="radio11">
 			<input type="radio" name="radio-btn" id="radio12">
-			<div class="slide first">
-				<img src="https://i.ibb.co/yB71mGS/laptop2.jpg" alt="laptop">
-			</div>
-			<div class="slide">
-				<img src="https://i.ibb.co/q0Pw7MZ/phone2.jpg" alt="phone">
-			</div>
-			<div class="slide">
-				<img src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
-			</div>
-			<div class="slide">
-				<img src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
-			</div>
+			<?php
+						include_once "dbh-con.php";
+                        $sub_query = "SELECT * FROM products ORDER BY product_serial DESC LIMIT 4;";
+                        $sub_query_run = mysqli_query($conn,$sub_query);
+
+                        if($sub_query_run)
+                        {
+							while($data = mysqli_fetch_assoc($sub_query_run))
+            				{
+								?>
+                				<div class="slide first">
+								<a href="pp.php?pid=<?php echo $data['product_serial']?>"><?php echo "<img src = '".$data['image']."' width = '327' height = '420'>";?></a>
+								</div>
+								<?php
+            				}
+                        }
+                    ?>
 		<div class="nav-auto">
 			<div class="auto-btn1"></div>
 			<div class="auto-btn2"></div>
@@ -262,30 +265,6 @@
 		</div>
 	</div>
 </div>
-
-<!--Subscription Box-->
-<div class="sub-container">
-        <input type = "radio" id = "hide">
-        
-        <div class="sub-box">
-            <label for ="hide" ><i class='bx bxs-exit'></i></label>
-            <div class="sub-logo">
-                <img src = "https://i.ibb.co/G78rr2S/logo.png" height="90px" width="90px" loading = "lazy">
-            </div>
-            <div class="sub-button">
-                <div class="text-1">
-                    TechRev
-                </div>
-                <div class="text-2">
-                    To get notified about new product
-                </div>
-                <button class="subscribe">
-                    Subscribe
-                </button>
-            </div>
-        </div>
-    </div>
-
 
 <script src = "./pushnote/main.js"></script>
 <!--JS file-->
