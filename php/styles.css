@@ -1,129 +1,4 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: #E9EFC0;
-    overflow: hidden;
-<<<<<<< HEAD
-  }
-  .navbar {
-    width: 115%;
-    background: #4E944F;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    color: white;
-  }
-  .navbar a{
-    text-decoration: none;
-    color: white;
-  }
-  .navbar1 {
-    width: 120%;
-    background: #4E944F;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    color: white;
-  }
-  .navbar1 a{
-    text-decoration: none;
-    color: white;
-  }
-  .navmenuone {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 40px;
-    list-style: none;
-    text-align: center;
-    width: 70vw;
-    justify-content: center;
-    margin-right: 2rem;
-  }
-  .navitem {
-    display: flex;
-    align-items: center;
-    height: 80px;
-  }
-  .nav-button{
-    padding: 20px;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: inherit;
-    font-size: 1.2rem;
-    background: inherit;
-    color: white;
-  }
-  .nav-button:hover{
-    color: #E9EFC0;
-  }
-  .nav-button1{
-    padding: 20px;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-family: inherit;
-    font-size: 1.5rem;
-    background: inherit;
-    color: white;
-    margin-top: 5px;
-  }
-  .nav-button1:hover{
-    color: #E9EFC0;
-  }
-  .nav-input{
-    padding: 5px;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: inherit;
-    width: 450px;
-    border: none;
-  }
-  .navbartwo {
-    position: fixed;
-    background: #83BD75;
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    color: white;
-    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
-  
-  }
-  .navmenu {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 40px;
-    list-style: none;
-    text-align: center;
-    width: 70vw;
-    justify-content: center;
-    margin-right: 2rem;
-  }
-  .downarrow{
-    color: white;
-    transform: translate(-5px,5px);
-=======
->>>>>>> demo
-  }
-  .container{
+.container{
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-gap: 190px;
@@ -235,8 +110,6 @@ body {
     background-color: #4E944F;
     color: #4E944F;
   }
-<<<<<<< HEAD
-=======
   .results{
     transform: translate(48px,0px);
     width: 359px;
@@ -253,8 +126,7 @@ body {
   .hide{
     display: none;
   }
-  
->>>>>>> demo
+
   /*------------------Start of dashboard and user panel codes---------------------------*/
   .side_dash{
     position: absolute;
@@ -309,7 +181,6 @@ body {
       width: 280px;
       transition: all 0.5s ease;
     }
-
 /*-------------All reviews page*/
 .review-form{
   position: fixed;
@@ -994,3 +865,6 @@ body {
           width: 100%;
           object-fit: cover;
       }
+
+
+

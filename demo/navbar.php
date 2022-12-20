@@ -1,15 +1,8 @@
-<?php
-	session_start();
-	include_once "dbh-con.php";
-?>
-<!DOCTYPE html>
-<html>
-	<head>
-    <link rel="stylesheet" href="../styles.css">
-    <link href="http://fonts.cdnfonts.com/css/bukhari-script" rel="stylesheet">
-	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
      <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -101,14 +94,15 @@
             result_div.classList.add("hide");
         }
     </script>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	
-	<title>User Profile</title>
-	</head>
-	<body style="background: #E9EFC0;">
-		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4E944F;">
+  </head>
+  <body style="background: #E9EFC0;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #4E944F;">
   <div class="container-fluid">
     <img src="https://i.ibb.co/G78rr2S/logo.png" alt="logo" class="logo" style="height: 50px; width: 50px; background-color: #4E944F; color: #4E944F;">
 				<a href="Homepage.html" style="text-decoration: none; color: white; margin-right: 200px; font-size: 25px;">TechRev</a>
@@ -123,19 +117,21 @@
               Category
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #4E944F;">
-              <li><a href = "product_gallery.php?type=smartphone" onmouseover="mouseover()" onmouseout="mouseout()" id="gfg" class="dropdown-item" href="#" style="color: white;">Smartphone</a></li>
-              <li><a href = "product_gallery.php?type=computer" onmouseover="mouseover1()" onmouseout="mouseout1()" id="gfg2" class="dropdown-item" href="#" style="color: white;">Computer</a></li>
-              <li><a href = "product_gallery.php?type=headphone" onmouseover="mouseover3()" onmouseout="mouseout3()" id="gfg4" class="dropdown-item" href="#" style="color: white;">Headphone</a></li>
-              <li><a href = "product_gallery.php?type=TV" onmouseover="mouseover2()" onmouseout="mouseout2()" id="gfg3" class="dropdown-item" href="#" style="color: white;">TV</a></li>
+              <li><a onmouseover="mouseover()" onmouseout="mouseout()" id="gfg" class="dropdown-item" href="#" style="color: white;">Smartphone</a></li>
+              <li><a onmouseover="mouseover1()" onmouseout="mouseout1()" id="gfg2" class="dropdown-item" href="#" style="color: white;">Computer</a></li>
+              <li><a onmouseover="mouseover3()" onmouseout="mouseout3()" id="gfg4" class="dropdown-item" href="#" style="color: white;">Headphone</a></li>
+              <li><a onmouseover="mouseover2()" onmouseout="mouseout2()" id="gfg3" class="dropdown-item" href="#" style="color: white;">TV</a></li>
             </ul>
           </li>
         <li class="nav-item">
-          <a class="nav-link" style="color: white; margin-right: 20px;" href="Log_Home.php">Account</a>
+          <a class="nav-link" style="color: white; margin-right: 20px;" href="#">Admin</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" style="color: white; margin-right: 20px;" ><?php echo $_SESSION["U_name"]?></a>
+            <a class="nav-link" style="color: white; margin-right: 20px;" href="#">Signup</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" style="color: white; margin-right: 20px;" href="#">Login</a>
+          </li>
         
         
       </ul>
@@ -152,67 +148,145 @@
         
     </div>
   </div>
-		<div class="side_dash">
-			<ul class="d-items">
-				<li class="it">
-					<a href="user_dash.php" id = ><i class='bx bxs-objects-vertical-center'></i><span class="menu-titles">Reviews</span></a>
-				</li>
-				<li class="it current">
-					<a href="profile.php"><i class='bx bxs-user-circle'></i><span class="menu-titles">Profile</span></a>
-				</li>
-				<li class="it">
-					<a href="product_req.php"><i class='bx bxs-message-square-edit'></i><span class="menu-titles">Product Request</span></a>
-				</li>
-				<li class="it">
-					<a  href="req_stat.php"><i class='bx bxs-bell-ring'></i><span class="menu-titles">Request Status</span></a>
-				</li>
-				<li class="it">
-					<a href="u_logout.php"><i class='bx bxs-exit'></i><span class="menu-titles">Logout</span></a>
-				</li>
-			</ul>
-		</div>
-		<div class = "profile-form">
-			<div class="form-container">
-				<h3>Update Info</h3>
-				<form class = "u-edit" action = "profile-update.php" method = "post">
-				<div class="in_field">
-				<input type="hidden" name ="usrid"  required value = "<?php echo $_SESSION['ID']?>">
-			    </div>
-				<div class="in_field">
-				<input type="text" name ="usrname"  required value = "<?php echo $_SESSION["U_name"]?>">
-				</div>
-				<div class="in_field">
-				<input type="email" name ="email"  required value = "<?php echo $_SESSION["Email"]?>">
-				</div>
-				<!-- Query for getting the password-->
-				<?php
-                    $con_query = "SELECT password FROM users WHERE userID=?";
-					$con_query_stmt = mysqli_stmt_init($conn);
-					if(!mysqli_stmt_prepare($con_query_stmt, $con_query))
-					{
-						echo "Sql Statement failed";
-					}
-					else{
-						//assign the placeholder original values
-						mysqli_stmt_bind_param($con_query_stmt,'i',$_SESSION['ID']);
-						//Run
-						mysqli_stmt_execute($con_query_stmt);
-						$con_query_result = mysqli_stmt_get_result($con_query_stmt);
-						//fetch data into variables
-						$row2 = mysqli_fetch_array($con_query_result);
-						mysqli_stmt_close($con_query_stmt);
-                	}
-                ?>
-				<div class="in_field">	
-				<input type="password" name ="psw"  placeholder="Update password?">
-				</div>
-				<div class="up-btn">
-					<button name = "update">
-						Update Info
-					</button>
-				</div>
-				</form>
-			</div>
-		</div>
-	</body>
+<div class="container">
+<div class="slider">
+<h2 class="sliderh2">Top Rated</h2>
+<div class="slides">
+    <input type="radio" name="radio-btn" id="radio1">
+    <input type="radio" name="radio-btn" id="radio2">
+    <input type="radio" name="radio-btn" id="radio3">
+    <input type="radio" name="radio-btn" id="radio4">
+<div class="slide first">
+    <img src="https://i.ibb.co/9Wj1rMq/tv.jpg" alt="tv">
+</div>
+<div class="slide">
+    <img src="https://i.ibb.co/7kskYFG/cam2.jpg" alt="dslr">
+</div>
+<div class="slide">
+    <img src="https://i.ibb.co/hcr0xCw/laptop.jpg" alt="laptop">
+</div>
+<div class="slide">
+    <img src="https://i.ibb.co/T1Wc8fZ/headphone.jpg" alt="headphone">
+</div>
+<div class="nav-auto">
+    <div class="auto-btn1"></div>
+    <div class="auto-btn2"></div>
+    <div class="auto-btn3"></div>
+    <div class="auto-btn4"></div>
+</div>
+</div>
+<div class="nav-manual">
+    <label for="radio1" class="manual-btn"></label>
+    <label for="radio2" class="manual-btn"></label>
+    <label for="radio3" class="manual-btn"></label>
+    <label for="radio4" class="manual-btn"></label>
+
+</div>
+</div>
+<div class="slider">
+<h2 class="sliderh2">Most Reviewed</h2>
+<div class="slides">
+    <input type="radio" name="radio-btn" id="radio5">
+    <input type="radio" name="radio-btn" id="radio6">
+    <input type="radio" name="radio-btn" id="radio7">
+    <input type="radio" name="radio-btn" id="radio8">
+<div class="slide first">
+    <img src="https://i.ibb.co/ZmpBT2G/headphone2.jpg" alt="headphone">
+</div>
+<div class="slide">
+    <img src="https://i.ibb.co/q9Tcv5M/tv2.jpg" alt="tv">
+</div>
+<div class="slide">
+    <img src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
+</div>
+<div class="slide">
+    <img src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
+</div>
+<div class="nav-auto">
+    <div class="auto-btn1"></div>
+    <div class="auto-btn2"></div>
+    <div class="auto-btn3"></div>
+    <div class="auto-btn4"></div>
+</div>
+</div>
+<div class="nav-manual">
+    <label for="radio5" class="manual-btn"></label>
+    <label for="radio6" class="manual-btn"></label>
+    <label for="radio7" class="manual-btn"></label>
+    <label for="radio8" class="manual-btn"></label>
+
+</div>
+</div>
+</div>
+<div class="container2">
+
+    <div class="slider">
+        <h2 class="sliderh2">New Poducts</h2>
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio9">
+                <input type="radio" name="radio-btn" id="radio10">
+                <input type="radio" name="radio-btn" id="radio11">
+                <input type="radio" name="radio-btn" id="radio12">
+                    <div class="slide first">
+                        <img src="https://i.ibb.co/yB71mGS/laptop2.jpg" alt="laptop">
+                    </div>
+            <div class="slide">
+                <img src="https://i.ibb.co/q0Pw7MZ/phone2.jpg" alt="phone">
+            </div>
+            <div class="slide">
+                <img src="https://i.ibb.co/Tvfqmpn/phone.jpg" alt="phone">
+            </div>
+            <div class="slide">
+            <img src="https://i.ibb.co/j6vpHtR/cam.jpg" alt="camera">
+            </div>
+            <div class="nav-auto">
+                <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+</div>
+<div class="nav-manual">
+<label for="radio9" class="manual-btn"></label>
+<label for="radio10" class="manual-btn"></label>
+<label for="radio11" class="manual-btn"></label>
+<label for="radio12" class="manual-btn"></label>
+
+</div>
+</div>
+</div>
+
+
+
+<!--JS file-->
+<script>
+var x=document.getElementById('login');
+var y=document.getElementById('register');
+var z=document.getElementById('btn');
+function register()
+{
+x.style.left='-400px';
+y.style.left='50px';
+z.style.left='100px'
+
+}
+function login()
+{
+x.style.left='50px';
+y.style.left='450px';
+z.style.left='0px'
+
+}
+</script>
+<script>
+
+window.onclick=function(event)
+{
+if(event.target==document.getElementById("login-form"))
+{
+document.getElementById("login-form").style.display = "none";
+}
+}
+</script>
+    </body>
 </html>
